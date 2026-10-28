@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools==84.2.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "af-r13-bridge"
+version = "0.1.0"
+description = "Independent AutoForm R13 bridge with verified document ownership and lifecycle"
+requires-python = ">=3.11"
+dependencies = ["uiautomation==2.0.29; sys_platform == 'win32'", "comtypes==1.4.17; sys_platform == 'win32'", "psutil==7.2.2", "pillow==13.0.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

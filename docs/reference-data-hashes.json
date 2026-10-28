@@ -1,0 +1,32 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "B695535BC26D8A0500D6D355797937777A7EA29DD722606563C11985CDB6286D",
+    "Path": "D:\\ai库\\autoform自动化\\新库与Bridge独立重建交接-2026-10-28.md"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "F68036F11CCD5E3B873884F2EEC36BE86C0C551327EAAE0F14287A9821CDA00B",
+    "Path": "D:\\ai库\\autoform自动化\\录制结果\\session-20261028-114837-d70207e2\\recording.mp4"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "7A9CA43EA4C9B9BA6661CCD3EF1C76D5A08AF1371CDAE8CA37035355A291E19F",
+    "Path": "D:\\ai库\\autoform自动化\\录制结果\\session-20261028-114837-d70207e2\\events.jsonl"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "ED0ED28DF4179371ECC269951A32E4765461FB559A183CFA771ED84DA723F3B1",
+    "Path": "D:\\ai库\\autoform自动化\\录制结果\\session-20261028-114837-d70207e2\\observations.jsonl"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "1736337A75CA7F4EC2EB5787917AEA573A6764C1C808C2039937458E9DE9448A",
+    "Path": "C:\\Users\\Administrator\\Desktop\\八角管抱箍\\抱箍.STEP"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "FA566B1FE415CAFA12AEF89B15D4F92B35901D42D4C2309FB4B5ABF46E56147E",
+    "Path": "C:\\ProgramData\\AutoForm\\AFplus\\R13F\\materials\\BrandName_MDB\\Erdemir\\Steels_Conventional_HSS\\S355MC_4936_4.00.mtb"
+  }
+]
