@@ -1,0 +1,58 @@
+{
+  "documented_on": "2026-10-29",
+  "scope": "Read-only extraction of historical window observations; no new AutoForm execution or cross-machine validation.",
+  "recording_reference": {
+    "recorded_on": "2026-10-28",
+    "session": "session-20261028-114837-d70207e2",
+    "source": "autoform自动化/录制结果/session-20261028-114837-d70207e2/session.json",
+    "source_remains_local": true,
+    "source_sha256": "e9a6bba6f1c5faee9df4103aa74be6d4ff4e4d81dc5000c972c7efce3bbf122d",
+    "source_fields": ["target.monitor_rect", "target.work_rect", "target.rect", "target.dpi"],
+    "monitor_rect": [0, 0, 1920, 1080],
+    "work_rect": [0, 0, 1920, 1040],
+    "window_rect": [-8, -8, 1928, 1048],
+    "window_dpi": 96,
+    "dpi_api": "GetDpiForWindow",
+    "client_size": null,
+    "windows_settings_scale_percent": null
+  },
+  "clean_bridge_acceptance_observations": [
+    {
+      "run": 1,
+      "source": "runs/business-acceptance-20261029/run-1/events.jsonl",
+      "source_sha256": "22f87e7d39b5d4f1bdaffa8d157875b6b87a8b10615e70741c464d7cc9694470",
+      "event": "business_window_maximized",
+      "window_rect": [-8, -8, 1928, 1048],
+      "window_dpi": null,
+      "monitor_rect": null,
+      "client_size": null
+    },
+    {
+      "run": 2,
+      "source": "runs/business-acceptance-20261029/run-2/events.jsonl",
+      "source_sha256": "ed76ec63609c5a1b4842f136fefc9cd8b35f3cca23404c976c13c09e8b948ea5",
+      "event": "business_window_maximized",
+      "window_rect": [-8, -8, 1928, 1048],
+      "window_dpi": null,
+      "monitor_rect": null,
+      "client_size": null
+    },
+    {
+      "run": 3,
+      "source": "runs/business-acceptance-20261029/run-3/events.jsonl",
+      "source_sha256": "747e4a59241e736571ad4f5cdcb344b22d7e24b05ea3d594599b6aa7ad96b363",
+      "event": "business_window_maximized",
+      "window_rect": [-8, -8, 1928, 1048],
+      "window_dpi": null,
+      "monitor_rect": null,
+      "client_size": null
+    }
+  ],
+  "limits": [
+    "Recording observations are not backfilled into the later acceptance runs.",
+    "Matching outer rectangles do not establish matching client sizes or DPI.",
+    "Window DPI depends on window DPI awareness and does not by itself prove the Windows Settings scaling percentage.",
+    "The current bridge maximizes before import_part but does not enforce a shared target client size or DPI across machines.",
+    "null means not separately recorded here; it does not mean zero or unsupported."
+  ]
+}
