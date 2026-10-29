@@ -14,6 +14,8 @@ from types import SimpleNamespace
 import uiautomation as auto
 from PIL import ImageGrab
 from ..adapters import native
+from ..models import BridgeError
+from ..window_policy import assert_profile
 
 
 def rect(control):
@@ -151,7 +153,11 @@ def _prepare(session, focus=True):
     return {'ok': True, 'hwnd': session.hwnd, 'geometry': actual}
 
 
-def _check_point(session, point, root_hwnd):
+def _check_point(session, point, root_hwnd, popup_proof=None):
+    try:
+        native.guard_input(root_hwnd,session.pid,popup_proof=popup_proof)
+    except BridgeError as error:
+        return {'ok':False,'error':error.code,'details':error.details}
     x, y = map(int, point)
     fg = native.u.GetForegroundWindow()
     hit = native.u.WindowFromPoint(w.POINT(x, y))
@@ -175,7 +181,12 @@ def click(session, control, *, root_hwnd=None, focus=True, relative=None):
     if not (0 <= rx < 1 and 0 <= ry < 1) or box[2] <= box[0] or box[3] <= box[1]:
         return {'ok': False, 'error': 'INVALID_CONTROL_RECT'}
     point = (int(box[0]+(box[2]-box[0])*rx), int(box[1]+(box[3]-box[1])*ry))
-    checked = _check_point(session, point, root_hwnd or session.hwnd)
+    popup_proof=None
+    if root_hwnd and root_hwnd!=session.hwnd:
+        observed=window_info(root_hwnd)
+        if observed.class_name in {'Qt5QWindowPopupDropShadowSaveBits','Qt5QWindow'} and observed.owner==0:
+            popup_proof={**observed.as_dict(),'root_class':control_from_handle(root_hwnd).ClassName}
+    checked = _check_point(session, point, root_hwnd or session.hwnd,popup_proof=popup_proof)
     if not checked['ok']:
         return checked
     click_screen(*point)
@@ -228,14 +239,33 @@ def wait_file_dialog(pid, timeout=15):
     return wait_for(locate, timeout)
 
 
-def _fill_dialog(hwnd, path, save):
+def material_preview_proof(hwnd):
+    dialog=window_info(hwnd)
+    candidates=[]
+    for item in windows(dialog.pid):
+        if item.hwnd!=hwnd and item.owner==dialog.owner and item.class_name=='Qt5QWindow':
+            root=control_from_handle(item.hwnd)
+            if root.ClassName=='AutoForm::MaterialPreviewerView':
+                candidates.append({**item.as_dict(),'root_class':root.ClassName})
+    if len(candidates)>1:
+        raise RuntimeError('Material preview is ambiguous')
+    return candidates[0] if candidates else None
+
+
+def _fill_dialog(hwnd, path, save, material_preview=False):
+    proof=material_preview_proof(hwnd) if material_preview else None
+    with native.material_preview_context(hwnd,proof):
+        return _fill_dialog_inputs(hwnd,path,save)
+
+
+def _fill_dialog_inputs(hwnd, path, save):
     path = Path(path).resolve()
     if not save and not path.is_file():
         raise FileNotFoundError(path)
     info = window_info(hwnd)
     if info.class_name != '#32770':
         raise RuntimeError('Expected native file dialog')
-    native.foreground(hwnd, info.pid)
+    native.guard_input(hwnd, info.pid, activate=True)
     items = native.dialog_children(hwnd)
     edits = [item for item in items if item['class']=='Edit' and item['aid'] in ('1001','1148')]
     buttons = [item for item in items if item['class']=='Button' and item['aid']=='1']
@@ -245,10 +275,12 @@ def _fill_dialog(hwnd, path, save):
     x,y = native.guard_point(hwnd, info.pid, rect(edit))
     auto.Click(x,y,waitTime=.1)
     edit.SetFocus()
+    native.guard_input(hwnd, info.pid)
     auto.SendKeys('{Ctrl}a',waitTime=.05)
     for char in str(path):
         if not edit.HasKeyboardFocus:
             raise RuntimeError('File path input focus changed')
+        native.guard_input(hwnd, info.pid)
         auto.SendUnicodeChar(char)
     if not wait_for(lambda: edit.GetValuePattern().Value == str(path),3,.05):
         raise RuntimeError('File dialog path readback mismatch')
@@ -270,8 +302,8 @@ def _fill_dialog(hwnd, path, save):
             'edit_hwnd': edits[0]['hwnd'], 'open_button_hwnd': buttons[0]['hwnd']}
 
 
-def fill_file_dialog(hwnd, path):
-    return _fill_dialog(hwnd, path, False)
+def fill_file_dialog(hwnd, path, *, material_preview=False):
+    return _fill_dialog(hwnd, path, False, material_preview=material_preview)
 
 
 def fill_save_dialog(hwnd, path):
@@ -322,6 +354,9 @@ def open_page(session, key, timeout=20):
 class BusinessSession:
     def __init__(self, request):
         self.pid, self.hwnd = request['pid'], request['hwnd']
+        native.configure_input(request.get('window_profile'))
+        if request.get('window_profile'):
+            assert_profile(native.geometry(self.hwnd),request['window_profile'])
         self.directory = Path(request['directory'])
         self.project = Path(request['project']) if request.get('project') else None
         self.document_rid = request['document_rid']
@@ -348,7 +383,7 @@ class BusinessSession:
         return True
 
     def focus(self):
-        native.foreground(self.hwnd,self.pid)
+        native.guard_input(self.hwnd,self.pid,activate=True)
         return True
 
     def title(self):

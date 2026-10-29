@@ -4,9 +4,9 @@ AutoForm R13 Bridge：Python/JSON API、同进程batch、抱箍业务工作流�
 
 2026-10-29用户允许筛选复用旧库已验证的业务代码。本包直接维护被选取的业务函数，沿用新库会话、所有权、worker和证据模块；不导入旧包，不调用旧CLI/chain/server，不依赖旧录制器。来源和修改见 `docs/provenance-*.json` 与[复用边界](docs/复用边界-2026-10-29.md)。
 
-本次验收：**144项测试通过，同一版本连续三个独立空工程完整通过**，每轮26阶段，耗时 280.155 / 282.801 / 284.173秒，CLI退出0；同文件持久化核对、两次关闭及自有页签归零全部通过。见[证据摘要](docs/evidence/business-acceptance-2026-10-29.json)。
+当前增量合并版验收：**178项测试通过，同一版本连续三个独立空工程完整通过**，每轮26阶段，耗时 324.099 / 322.679 / 321.846秒，CLI退出0；同文件持久化核对、两次关闭及自有页签归零全部通过，独立审计3872项通过。见[当前证据摘要](docs/evidence/increment-merge-acceptance-2026-10-29.json)。
 
-实现和真实验收分开记录：[功能树](docs/功能树.md)、[API](docs/api.md)、[当次状态](docs/status-2026-10-29.md)。旧三连和第08轮空工程验证不替代新业务验证。
+实现和真实验收分开记录：[功能树](docs/功能树.md)、[API](docs/api.md)、[当前合并与验收记录](docs/增量合并记录-2026-10-29.md)。旧三连和第08轮空工程验证不替代当前增量验证。
 
 ## 抱箍工序说明
 
@@ -33,7 +33,7 @@ U图标与C-20描述同一个规划工序。验收中的“26阶段”包含会�
 
 ### 窗口尺寸与复现条件
 
-**不同电脑的“最大化”不代表相同窗口尺寸。** 显示器分辨率、显示缩放、任务栏占用和窗口边框都会影响实际布局。当前版本在导入零件前请求最大化，但没有把其他电脑统一到经过验证的窗口尺寸；仅执行“最大化”不足以复现本机环境。
+当前版本在现有会话入口固定主窗口客户区为 **1800×960**、屏幕客户区原点 **(30,50)**、窗口 **DPI=96**，并核对显示器可用工作区。导入零件前的最大化已移除。每次受控输入检查窗口状态、鼠标捕获和弹窗上下文；尺寸、位置或 DPI 改变时停止输入。合并范围及新证据见[增量合并记录](docs/增量合并记录-2026-10-29.md)。
 
 原始操作演示记录的参考环境如下。这些是2026-10-28录像中的观测值，不能替代2026-10-29三轮验收中未保存的字段：
 
@@ -46,9 +46,9 @@ U图标与C-20描述同一个规划工序。验收中的“26阶段”包含会�
 | Win32客户区尺寸 | 原始演示未单独记录，不能从外框直接当作已知值 |
 | Windows设置中的缩放百分比 | 未单独记录；窗口DPI读数96不能无条件等同于系统缩放100% |
 
-三轮新库验收均记录了相同的主窗口外框，但没有持久化DPI、显示器区域和客户区尺寸。来源与原件哈希见[窗口参考证据](docs/evidence/window-reference-2026-10-29.json)。窗口DPI的含义参见[微软GetDpiForWindow说明](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getdpiforwindow)。
+合并前的历史三轮验收均记录了相同的主窗口外框，但没有持久化DPI、显示器区域和客户区尺寸。来源与原件哈希见[历史窗口参考证据](docs/evidence/window-reference-2026-10-29.json)。窗口DPI的含义参见[微软GetDpiForWindow说明](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getdpiforwindow)。
 
-当前[窗口状态检查](src/af_r13_bridge/operations/ui.py)只在每个业务调用开始时建立自身基线，并在该调用内的受控点击前检查变化；它没有将用户机器与上述参考环境比较。**固定目标客户区宽高、校验DPI与可用工作区、尺寸不匹配时在业务开始前停止，仍是待补齐的跨机器运行能力。** 窗口尺寸一致也不能替代界面布局和完整流程验证。现阶段其他显示环境需要单独验证，不能依据本机三轮通过就宣称兼容。
+上述最大化尺寸属于合并前的历史参考，不能替代当前固定窗口的验收。固定窗口由现有 `WindowsAdapter` 准备，同一个 profile 传递给生命周期和业务 worker；没有引入第二套会话、所有权或保存关闭实现。窗口尺寸一致仍不能替代界面布局与完整流程验证，其他显示环境需单独验证。
 
 运行期间应保持窗口位置、大小、显示缩放及所在显示器稳定。
 
@@ -58,11 +58,14 @@ U图标与C-20描述同一个规划工序。验收中的“26阶段”包含会�
 
 ```powershell
 & .\.venv\Scripts\python.exe -I -m af_r13_bridge capabilities
+& .\.venv\Scripts\python.exe -I -m af_r13_bridge catalog --query "springback"
 & .\.venv\Scripts\python.exe -I -m af_r13_bridge discover
 & .\.venv\Scripts\python.exe -I -m af_r13_bridge chain --workflow baogu --runs 3 --live --out D:\ai库\autoform-clean-bridge\runs\new-acceptance
 ```
 
 默认输入为桌面八角管抱箍的 `抱箍.STEP` 和R13材料库中的 `S355MC_4936_4.00.mtb`，可用 `--part/--material` 指定文件。其他输入仍需单独验证。无运行中的R13时可加 `--launch --license-server 2375@127.0.0.1 --allow-selected-license`；附着不会更改许可证。多个R13会话或未知模态会停止并留证。
+
+`catalog` 是无需 UI 的本机官方帮助索引检索；当前索引含 21 类、257 项，所有条目的可调用状态仍未验证。原有 16 个业务操作入口保留，目录检索不会把索引条目自动变成可执行功能。
 
 研发可用 `--runs 1 --until set_material` 等截止点；会收尾，但保持 `e2e_ok=false`，不能当完整验收。所有必需阶段通过且每轮少于20分钟、关闭收尾成功时完整chain才退出0。单项操作使用同一Python Bridge实例或 `batch --live --request request.json`，不跨CLI进程传递工程所有权。
 

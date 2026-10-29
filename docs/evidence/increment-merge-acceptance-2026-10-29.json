@@ -1,0 +1,156 @@
+{
+  "date": "2026-10-29",
+  "status": "merged_and_verified_current_scenario",
+  "target_package": "af_r13_bridge",
+  "baseline_git_commit": "710aea38f60495a2da1aca4e12c6c4c1318b99e6",
+  "version_fingerprint": "fb6c08f33a0d4dfe2679fb4a8ef473f48fe3814a5b91522ae535bf722d5792d6",
+  "source_and_installed_match": true,
+  "package_manifest_files": 33,
+  "unchanged_existing_foundation": [
+    "lifecycle.py",
+    "supervisor.py",
+    "workflow.py",
+    "solver.py",
+    "recovery.py",
+    "evidence.py",
+    "isolation.py",
+    "adapters/session.py"
+  ],
+  "business_operations": [
+    "add_reference",
+    "assign_operation",
+    "configure_tools",
+    "copy_blank",
+    "create_plan",
+    "extract_part",
+    "forming_check",
+    "import_part",
+    "read_business",
+    "set_direction",
+    "set_friction",
+    "set_material",
+    "set_springback",
+    "solve",
+    "start_simulation",
+    "visit_die_face"
+  ],
+  "offline_tests": {
+    "passed": 178,
+    "baseline_passed": 144,
+    "source": "runs/increment-merge-20261029-01/merged-tests-11.log"
+  },
+  "catalog": {
+    "entry_count": 257,
+    "family_count": 21,
+    "callable_verified": false,
+    "source": {
+      "path": "D:\\Program Files\\AutoForm\\AFplus\\R13F\\help\\helpLinks.cfg",
+      "sha256": "fe2a4ac69389d0f2c3696bd727bcf62e4439db1e1019a49d26a747bd4639e4c5",
+      "line_count": 667,
+      "kind": "installed_official_help_mapping"
+    }
+  },
+  "window": {
+    "ok": true,
+    "client_rect": [
+      30,
+      50,
+      1830,
+      1010
+    ],
+    "dpi": 96,
+    "resize_rejected": true,
+    "minimized_rejected": true,
+    "restored": true,
+    "documents_unchanged": true
+  },
+  "business": {
+    "three_consecutive_verified": true,
+    "cli_exit_code": 0,
+    "independent_audit_checks": 3872,
+    "audit_failures": 0,
+    "runs": [
+      {
+        "run": 1,
+        "elapsed_seconds": 324.099,
+        "required_stages": 26,
+        "all_passed": true,
+        "same_file_persistence": true,
+        "owned_documents_remaining": 0,
+        "unknown_documents_remaining": 0,
+        "baseline_documents": 0,
+        "workers_stopped": true,
+        "final_file": {
+          "path": "D:\\ai库\\autoform-clean-bridge\\runs\\increment-merge-20261029-01\\business-07\\run-1\\抱箍-0b551ac6f6.afd",
+          "sha256": "8dd0919d18b80db9312e4b317edfa314eea2dafe27ddd8b4fb4ef692e07a3767",
+          "role": "GUI original; saved, closed, same-file reopened and closed again"
+        }
+      },
+      {
+        "run": 2,
+        "elapsed_seconds": 322.679,
+        "required_stages": 26,
+        "all_passed": true,
+        "same_file_persistence": true,
+        "owned_documents_remaining": 0,
+        "unknown_documents_remaining": 0,
+        "baseline_documents": 0,
+        "workers_stopped": true,
+        "final_file": {
+          "path": "D:\\ai库\\autoform-clean-bridge\\runs\\increment-merge-20261029-01\\business-07\\run-2\\抱箍-2dbe966b07.afd",
+          "sha256": "e83df57e287b72314ecb991c405ede59959944f8be08833a1edc98eb1e6fd1d1",
+          "role": "GUI original; saved, closed, same-file reopened and closed again"
+        }
+      },
+      {
+        "run": 3,
+        "elapsed_seconds": 321.846,
+        "required_stages": 26,
+        "all_passed": true,
+        "same_file_persistence": true,
+        "owned_documents_remaining": 0,
+        "unknown_documents_remaining": 0,
+        "baseline_documents": 0,
+        "workers_stopped": true,
+        "final_file": {
+          "path": "D:\\ai库\\autoform-clean-bridge\\runs\\increment-merge-20261029-01\\business-07\\run-3\\抱箍-e3abd68811.afd",
+          "sha256": "61cbf80e4b5873ec9f541dc0badd32b1aa3a64b196c816f453d75f62c79772e1",
+          "role": "GUI original; saved, closed, same-file reopened and closed again"
+        }
+      }
+    ]
+  },
+  "scope": "Specified baogu STEP / S355MC / 4 mm, local Chinese R13, baseline documents zero; complete GUI/native solve and same-file persistence/close lifecycle.",
+  "full_field_results_read": false,
+  "engineering_tolerance_verified": false,
+  "evidence": [
+    {
+      "path": "runs\\increment-merge-20261029-01\\business-07\\chain.json",
+      "sha256": "16e8f5f11f0c69ad6916a15a0fe46841a331e6f3a0cc4652038cd4d3dc81279d"
+    },
+    {
+      "path": "runs\\increment-merge-20261029-01\\business-07\\result.json",
+      "sha256": "7a1facc29c7fe875dd4427e5ee7bc1612ca68e796dfa388c58af1717ea13e47e"
+    },
+    {
+      "path": "runs\\increment-merge-20261029-01\\business-07\\acceptance-audit.json",
+      "sha256": "a7933395c6b7e49085a7382ec7fd6019514e42568bc1d29873fc8baea5946f20"
+    },
+    {
+      "path": "runs\\increment-merge-20261029-01\\business-07\\code-manifest.json",
+      "sha256": "dd10c8b72f7bfadffb1805d8b19332be16b8aa14e8991a109be26c6a0ac00b80"
+    },
+    {
+      "path": "runs\\increment-merge-20261029-01\\merged-tests-11.log",
+      "sha256": "104b6fa57f4cced2a64832a61df0c57e6bd7a2771e07ddf15f6db3cc68edcec6"
+    },
+    {
+      "path": "runs\\increment-merge-20261029-01\\window-02\\window-result.json",
+      "sha256": "59b7d6cb006222efa6abe7dd17468839fc70cd2972b670cbbf51200d8bbee884"
+    },
+    {
+      "path": "runs\\increment-merge-20261029-01\\catalog-final\\result.json",
+      "sha256": "3d95db263e8507b6d4e5fd7d2e3f27e1cc6e1e07625d4b13958f7373bf3d021f"
+    }
+  ]
+}

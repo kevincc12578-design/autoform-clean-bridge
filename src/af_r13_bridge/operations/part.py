@@ -463,7 +463,7 @@ def _apply_material(session, material_file: str | Path, *, thickness_mm: float =
     context["picker"] = {"hwnd": dialog.hwnd, "title": dialog.title,
                          "class_name": dialog.class_name, "pid": dialog.pid, "owner": dialog.owner}
     context["path"] = str(path)
-    filled = ui.fill_file_dialog(dialog.hwnd, path)
+    filled = ui.fill_file_dialog(dialog.hwnd, path, material_preview=True)
     if not filled.get("ok"):
         return {"ok": False, "error": "MATERIAL_FILE_DIALOG_FAILED", "file_dialog": filled}
     confirmed_editor = accepted_disclaimer = False

@@ -43,7 +43,15 @@ def run(request):
     else:
         result = actions[operation]()
     # A business action never gains permission to switch or create a document.
-    session.verify_document()
+    try:
+        session.verify_document()
+    except Exception as error:
+        if result.get('ok'):
+            raise
+        # Preserve the primary guard failure when an open menu temporarily
+        # hides the main UIA tree; never turn either failure into success.
+        result['identity_verification_error']=str(error)
+        return result
     stamp=str(time.monotonic_ns())
     screenshot=session.screenshot(session.directory/f'{stamp}-{operation}.png')
     dump=session.directory/f'{stamp}-{operation}.json'

@@ -16,6 +16,7 @@ BUSINESS_OPERATIONS = frozenset({'import_part','extract_part','set_direction','s
 
 def capabilities() -> dict[str, Any]:
     """Implementation status is deliberately separate from live validation."""
+    from .window_policy import DEFAULT_WINDOW
     return {
         "session_and_lifecycle": "implemented",
         "empty_design_lifecycle": "verified_current_scenario",
@@ -29,6 +30,20 @@ def capabilities() -> dict[str, Any]:
         "baogu_workflow": "implemented; validation is run-scoped",
         "solver": "implemented; validation is run-scoped",
         "business_operations": sorted(BUSINESS_OPERATIONS),
+        "window_input_contract": {
+            "status": "implemented; validation is run-scoped",
+            "default_window": dict(DEFAULT_WINDOW),
+            "mouse_capture_guard": True,
+            "same_process_popup_guard": True,
+            "filename_suggestions": "scoped to the observed filename Edit",
+            "reference": "docs/增量合并记录-2026-10-29.md",
+        },
+        "function_catalog": {
+            "status": "implemented_read_only_index",
+            "source": "installed_official_help_mapping",
+            "callable_verified": False,
+            "scope": "Searchable help entries are not executable business operations.",
+        },
         "business_acceptance_reference": "docs/status-2026-10-29.md; runs/business-acceptance-20261029/chain.json",
         "gui_solver_cancel": "not_implemented; worker cancellation does not cancel a submitted GUI job",
         "native_solver_cancel": "cooperative job_id request, confirmed by terminal job state",
@@ -91,6 +106,10 @@ class Bridge:
             if operation == "capabilities":
                 data = capabilities()
                 scope = "Implementation declarations only; consult live run evidence for verification."
+            elif operation == "catalog":
+                from .catalog import query_catalog
+                data = query_catalog(request.get("query", ""), request.get("source"))
+                scope = data["verification_scope"]
             elif operation == "attach":
                 data = {"baseline": [item.to_dict() for item in self.lifecycle.attach()]}
                 conditions["baseline_recorded"] = True
@@ -193,7 +212,7 @@ class Bridge:
             job_id=data.get('job_id') or (data.get('job',{}).get('id') if isinstance(data.get('job'),dict) else None)
             return Result(True, operation, uuid.uuid4().hex, document_id=document_id, job_id=job_id, data=data,
                           verification_scope=scope, postconditions=conditions,
-                          evidence=[str(self.lifecycle.run_dir / "lifecycle-events.jsonl")],
+                          evidence=[] if operation in {"capabilities", "catalog"} else [str(self.lifecycle.run_dir / "lifecycle-events.jsonl")],
                           elapsed_ms=round((time.monotonic() - started) * 1000, 3)).to_dict()
         except (Exception, KeyboardInterrupt) as error:
             return error_result(operation, error, elapsed_ms=(time.monotonic() - started) * 1000)

@@ -16,6 +16,7 @@ from . import native
 from .session import connect
 from ..models import Design, BridgeError
 from ..supervisor import Supervisor, WriterLease
+from ..window_policy import is_decoration
 
 NEW='main_window.m_topDockWidget.topWidget.DesignBarViewClass.m_newDesignBtn'
 WELCOME='main_window.AFWelcomeDialogClass.m_mainFrame.m_bottomFrame.m_closePB'
@@ -58,7 +59,11 @@ class WindowsAdapter:
         self.lease=WriterLease(self.pid).acquire()
         try:
             self.supervisor=Supervisor(self.directory)
+            self.window_profile=native.normalize_window(self.hwnd,self.pid)
+            self.supervisor.evidence.append('window_normalized',profile=self.window_profile)
         except BaseException:
+            if hasattr(self,'supervisor'):
+                self.supervisor.shutdown()
             self.lease.release()
             raise
         self.session_id=uuid.uuid4().hex
@@ -77,7 +82,8 @@ class WindowsAdapter:
     def _call(self,action,*,hwnd=None,**request):
         if self._closed: raise BridgeError('disconnected','Adapter has disconnected')
         self._windows()
-        return self.supervisor.run_worker({'action':action,'pid':self.pid,'hwnd':hwnd or self.hwnd,**request})
+        return self.supervisor.run_worker({'action':action,'pid':self.pid,'hwnd':hwnd or self.hwnd,
+                                          'window_profile':self.window_profile,**request})
 
     def _dump(self,hwnd=None):
         return self._call('dump',hwnd=hwnd,depth=32)['controls']
@@ -91,12 +97,12 @@ class WindowsAdapter:
     def _idle(self,*,dismiss_welcome=False):
         windows=self._windows()
         main=unique(windows,hwnd=self.hwnd)
-        extra=[w for w in windows if w['hwnd']!=self.hwnd]
+        extra=[w for w in windows if w['hwnd']!=self.hwnd and not is_decoration(w)]
         if extra and all(self._save_render_window(w) for w in extra):
             deadline=time.monotonic()+5
             while extra and time.monotonic()<deadline:
                 time.sleep(.2)
-                extra=[w for w in self._windows() if w['hwnd']!=self.hwnd]
+                extra=[w for w in self._windows() if w['hwnd']!=self.hwnd and not is_decoration(w)]
             if not extra: return self._idle(dismiss_welcome=dismiss_welcome)
         if extra:
             if len(extra)==1 and extra[0]['owner']==self.hwnd:
@@ -187,7 +193,7 @@ class WindowsAdapter:
         deadline=time.monotonic()+15
         while time.monotonic()<deadline:
             windows=self._windows()
-            extra=[w for w in windows if w['hwnd']!=self.hwnd]
+            extra=[w for w in windows if w['hwnd']!=self.hwnd and not is_decoration(w)]
             if len(extra)==1 and extra[0]['class_name']=='#32770' and extra[0]['owner']==self.hwnd and extra[0]['title']==title:
                 dialog=extra[0]
                 controls=self._call('file_fields',hwnd=dialog['hwnd'])['controls']
@@ -201,6 +207,21 @@ class WindowsAdapter:
         raise BridgeError('dialog_timeout','Expected file dialog did not appear')
 
     def _submit_file(self,dialog,path):
+        try:
+            return self._submit_file_input(dialog,path)
+        except Exception:
+            # Only this already observed transaction's dialog may be cancelled.
+            # The normal worker guards still reject unknown windows/capture.
+            current=next((w for w in self._windows() if w['hwnd']==dialog['hwnd']),None)
+            if (current and current['pid']==self.pid and current['owner']==self.hwnd
+                    and current['class_name']=='#32770' and current['title']==dialog['title']):
+                try:
+                    self._call('click',hwnd=dialog['hwnd'],selector={'aid':'2','class':'Button'})
+                except Exception as error:
+                    self.supervisor.evidence.append('file_dialog_cancel_failed',error=str(error),dialog=current)
+            raise
+
+    def _submit_file_input(self,dialog,path):
         self._call('text',hwnd=dialog['hwnd'],selector={'aid':dialog['edit_aid'],'class':'Edit'},value=str(path))
         check=unique(self._call('file_fields',hwnd=dialog['hwnd'])['controls'],aid=dialog['edit_aid'],**{'class':'Edit'})
         if check.get('value')!=str(path): raise BridgeError('path_mismatch','File dialog path changed')
@@ -209,7 +230,7 @@ class WindowsAdapter:
         stable=0
         while time.monotonic()<deadline:
             windows=self._windows()
-            extra=[w for w in windows if w['hwnd']!=self.hwnd]
+            extra=[w for w in windows if w['hwnd']!=self.hwnd and not is_decoration(w)]
             if not extra and unique(windows,hwnd=self.hwnd)['enabled']:
                 stable+=1
                 if stable>=3: return
@@ -261,7 +282,7 @@ class WindowsAdapter:
             # A known warning may indicate an intervening modification. Cancel,
             # preserve content, and let lifecycle diagnostics save a fresh file.
             windows=self._windows()
-            extra=[w for w in windows if w['hwnd']!=self.hwnd]
+            extra=[w for w in windows if w['hwnd']!=self.hwnd and not is_decoration(w)]
             if len(extra)==1:
                 controls=self._dump(extra[0]['hwnd'])
                 if controls[0]['class']=='AutoForm::AFMessageBox':
@@ -321,20 +342,14 @@ class WindowsAdapter:
             raise BridgeError('not_implemented','Business operation not registered')
         if design.token not in self._owned_tokens:
             raise BridgeError('not_owned','Business operations require an owned design')
-        if operation=='import_part':
-            # R13 can restore below the desktop work area, covering Apply with
-            # the taskbar. Start business work in the maximized application view.
-            self._idle()
-            native.u.ShowWindow(self.hwnd,3)
-            time.sleep(.3)
-            self.supervisor.evidence.append('business_window_maximized',hwnd=self.hwnd,windows=self._windows())
         current=self._select(design)
         if operation!='read_business':
             self._saved.pop(design.token,None)
         timeout={'forming_check':210,'start_simulation':360,'read_business':180}.get(operation,120)
         response=self.supervisor.run_worker({'action':'business','operation':operation,
             'pid':self.pid,'hwnd':self.hwnd,'document_rid':current.metadata['runtime_id'],
-            'directory':str(self.directory),'project':current.path,'arguments':arguments},timeout=timeout)
+            'directory':str(self.directory),'project':current.path,'arguments':arguments,
+            'window_profile':self.window_profile},timeout=timeout)
         if operation=='start_simulation' and response.get('save_transaction',{}).get('ok'):
             proof=response['save_transaction']
             path=Path(arguments['path']).resolve()

@@ -681,7 +681,8 @@ def _click_copy_popup(session, popup, *, main_hwnd, expected_geometry):
     if geometry is None or geometry != expected_geometry:
         return _fail("MAIN_WINDOW_CHANGED_DURING_POPUP", expected=expected_geometry, actual=geometry)
     point = (round((rect[0]+rect[2])/2),round((rect[1]+rect[3])/2))
-    checked = common._check_point(session,point,popup["hwnd"])
+    proof={**current.as_dict(),'root_class':popup['root_class']}
+    checked = common._check_point(session,point,popup["hwnd"],popup_proof=proof)
     if not checked.get("ok"):
         return checked
     win32.click_screen(*point)

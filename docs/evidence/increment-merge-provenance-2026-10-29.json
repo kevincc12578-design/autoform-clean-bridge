@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-29",
+  "baseline_git_commit": "710aea38f60495a2da1aca4e12c6c4c1318b99e6",
+  "sources": [
+    {
+      "source": "D:\\ai库\\autoform-click-bridge\\src\\af_r13_click\\api.py",
+      "sha256": "d74ffb6994a5b4283a6e4b198ffb2a19c2f472444b6478ad51f616aa79758683",
+      "selected_parts": [
+        "DEFAULT_WINDOW"
+      ]
+    },
+    {
+      "source": "D:\\ai库\\autoform-click-bridge\\src\\af_r13_click\\native.py",
+      "sha256": "b05abff0fe0d55dd21c4ff487f9eef189196a5be33c7545c7393ede05e865e65",
+      "selected_parts": [
+        "geometry",
+        "normalize",
+        "gui_state"
+      ]
+    },
+    {
+      "source": "D:\\ai库\\autoform-click-bridge\\src\\af_r13_click\\windows.py",
+      "sha256": "3868677134e62ecbb07c7f3309e8391d329eefa533643e486a867dc8a7e6c925",
+      "selected_parts": [
+        "rect_tuple",
+        "assert_profile",
+        "owner_chain"
+      ]
+    },
+    {
+      "source": "D:\\ai库\\autoform-click-bridge\\src\\af_r13_click\\inputs.py",
+      "sha256": "bb15a415c220b9a94cc631f14b314da4131e9e5dfb869dad14fab7581e7d7dee",
+      "selected_parts": [
+        "register_filename_suggestions",
+        "_filename_dropdown",
+        "_input_context",
+        "guard"
+      ]
+    },
+    {
+      "source": "D:\\ai库\\autoform-click-bridge\\src\\af_r13_click\\catalog.py",
+      "sha256": "07c009e0ac7248edcc1e2f8f289224fd9ef55b0730ef22631e649c975bff7757",
+      "selected_parts": [
+        "Catalog",
+        "load_catalog",
+        "search",
+        "as_dict"
+      ]
+    }
+  ],
+  "target_package": "af_r13_bridge",
+  "runtime_dependency_on_experiment": false,
+  "adaptation": [
+    "Reuse main native/worker transports; no new ClickDriver or WindowsNative backend",
+    "Use main BridgeError and Result schemas; pass fixed profile through existing adapter requests",
+    "Fit filename dropdown to monitor work area while retaining Edit attachment checks",
+    "Require current UIA/native evidence for ownerless AFMenu and MaterialDisclaimerView",
+    "Scope MaterialPreviewerView companion allowance to material file-picker transaction",
+    "Expose indexed catalog through existing Python/CLI API; keep business allowlist unchanged",
+    "Exclude exact Qt tooltip/shadow decoration classes from modal checks; retain capture and hit guards",
+    "Retain structured rejected-window details in existing worker stderr; recognize observed Qt shadow/no-shadow and native Windows tooltip classes only"
+  ],
+  "protected_existing_modules_unchanged": [
+    "lifecycle.py",
+    "supervisor.py",
+    "workflow.py",
+    "solver.py",
+    "recovery.py",
+    "evidence.py",
+    "isolation.py",
+    "adapters/session.py"
+  ],
+  "excluded_experiment_implementations": [
+    "Bridge class",
+    "backend.py",
+    "lifecycle.py",
+    "supervisor.py",
+    "worker.py",
+    "evidence.py",
+    "isolation.py",
+    "recovery.py",
+    "observe.py"
+  ],
+  "verification_reference": "increment-merge-acceptance-2026-10-29.json",
+  "final_version_fingerprint": "fb6c08f33a0d4dfe2679fb4a8ef473f48fe3814a5b91522ae535bf722d5792d6",
+  "target_manifest": "runs/increment-merge-20261029-01/business-07/code-manifest.json",
+  "target_manifest_sha256": "dd10c8b72f7bfadffb1805d8b19332be16b8aa14e8991a109be26c6a0ac00b80"
+}

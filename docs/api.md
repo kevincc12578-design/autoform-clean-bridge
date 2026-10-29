@@ -1,5 +1,27 @@
 # AutoForm R13 Bridge API
 
+## 增量入口：固定窗口与功能目录
+
+`WindowsAdapter` 在取得原有单写锁后，将主窗口客户区准备为 1800×960，屏幕客户区原点 `(30,50)`，要求窗口 DPI=96、边框与客户区均位于当前显示器工作区。这个准备发生在会话开始；运行中尺寸、位置、DPI、窗口身份或最小化状态变化时停止输入，不在点击前悄悄改回。原有 `Bridge.call`、`batch`、16 个业务操作及保存关闭接口不变。
+
+文件框沿用原来的绝对路径输入和读回；自动补全列表必须绑定已识别的文件名 Edit、同进程同线程、焦点与贴合矩形一致且位于显示器工作区。业务已经识别的无 owner `AFMenu` 和 `MaterialDisclaimerView` 还需新鲜窗口快照和线程/活动窗口证据；材料预览仅在本次文件框事务内限定允许。明确的 Qt 工具提示不作模态，仍检查捕获和命中，不能因为同进程就放行所有弹窗。
+
+目录检索无需启动或附着 AutoForm，也不需要 `--live`：
+
+```powershell
+& .\.venv\Scripts\python.exe -I -m af_r13_bridge catalog --query "材料"
+& .\.venv\Scripts\python.exe -I -m af_r13_bridge catalog --query "springback"
+```
+
+```python
+from af_r13_bridge.catalog import query_catalog
+index = query_catalog("springback")
+# 已有 Bridge 实例也可在 attach 前读取：
+result = bridge.call("catalog", {"query": "springback"})
+```
+
+可选 `--source` 指向本地 `helpLinks.cfg`，`--out` 指向全新的证据目录。返回 `entry_count` / `family_counts` 为完整索引统计，`match_count` / `entries` 为筛选结果，另含源文件路径、SHA256、源行号和 presenter。每项仍为 `status=indexed`、`local_availability=unknown`、`callable_verified=false`。目录条目不自动加入业务操作白名单。
+
 更新日期：2026-10-29。本文描述当前新增接口；**本次指定抱箍场景已通过同版三轮完整业务链及非空工程持久化现场验收**。旧库的三轮通过记录仅是代码筛选依据，不能替代新库验收。
 
 ## 会话与返回结构
@@ -113,4 +135,4 @@ request = cancel_job(state["work_dir"], state["job_id"])
 
 ## 2026-10-29 指定业务验收
 
-同一冻结版本已连续完成三个独立空工程的26阶段整链，144项自动测试通过。GUI与原生日志、同文件业务持久化和两次关闭的原件均已独立复核；详见[状态](status-2026-10-29.md)和[证据摘要](evidence/business-acceptance-2026-10-29.json)。`capabilities`是能力声明，静态`e2e_ok=false`不冒充一次运行结果；实际结果以当轮`chain.json`为准。原生取消仅有离线进程测试，不因正常求解链通过而宣称真实R13取消已验。
+当前增量合并版的同一冻结版本已连续完成三个独立空工程的26阶段整链，用时324.099 / 322.679 / 321.846秒，178项自动测试通过。GUI与原生日志、同文件业务持久化和两次关闭的原件均已独立复核，3872项核对通过；详见[合并与验收记录](增量合并记录-2026-10-29.md)和[当前证据摘要](evidence/increment-merge-acceptance-2026-10-29.json)。`capabilities`是能力声明，静态`e2e_ok=false`不冒充一次运行结果；实际结果以当轮`chain.json`为准。原生取消仅有离线进程测试，不因正常求解链通过而宣称真实R13取消已验。

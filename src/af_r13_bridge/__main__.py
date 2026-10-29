@@ -67,6 +67,10 @@ def _parser() -> Parser:
     audit = commands.add_parser("audit", help="Read-only dependency and source isolation audit")
     audit.add_argument("--out", required=True)
     commands.add_parser("capabilities", help="Implementation status; no UI access")
+    catalog = commands.add_parser("catalog", help="Read-only official help index; no UI access or execution")
+    catalog.add_argument("--query", default="")
+    catalog.add_argument("--source", help="Optional helpLinks.cfg path; defaults to the local R13 installation")
+    catalog.add_argument("--out", help="Optional new evidence directory")
     discovery = commands.add_parser("discover", help="Read-only R13 process/window discovery")
     discovery.add_argument("--out")
     chain=commands.add_parser('chain',help='Owned baogu business workflow including same-file persistence and final close')
@@ -111,6 +115,12 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "capabilities":
             result = Result(True, "capabilities", uuid.uuid4().hex, data=capabilities(),
                             verification_scope="Implementation declarations; no UI access.").to_dict()
+        elif args.command == "catalog":
+            from .catalog import query_catalog
+            directory = _fresh_directory(args.out) if args.out else None
+            data = query_catalog(args.query, args.source)
+            result = Result(True, "catalog", uuid.uuid4().hex, data=data,
+                            verification_scope=data["verification_scope"]).to_dict()
         elif args.command=='chain':
             if not args.live:
                 raise BridgeError('live_opt_in_required','Real business operations require --live')

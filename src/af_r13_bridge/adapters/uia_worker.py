@@ -11,6 +11,20 @@ import traceback
 import time
 
 def run(req):
+    from . import native
+    native.configure_input(req.get('window_profile'))
+    if req.get('material_preview'):
+        # Explicitly scoped file-picker transaction/recovery only. Observation
+        # and every subsequent native guard remain in this bounded worker.
+        if req.get('action') not in {'click','text'}:
+            raise ValueError('Material preview context requires a file-picker input')
+        from ..operations.ui import material_preview_proof
+        with native.material_preview_context(req['hwnd'],material_preview_proof(req['hwnd'])):
+            return _run(req)
+    return _run(req)
+
+
+def _run(req):
     import uiautomation as a
     from . import native
     from ..isolation import isolation_report
@@ -79,7 +93,7 @@ def run(req):
         return {'tabs':tabs,'title':root.Name,'windows':native.windows(pid)}
     if action=='keys':
         if not native.u.IsWindowEnabled(hwnd): raise RuntimeError('Window is disabled by a modal')
-        native.foreground(hwnd,pid)
+        native.guard_input(hwnd,pid,activate=True)
         if not native.u.IsWindowEnabled(hwnd): raise RuntimeError('Window became disabled')
         a.SendKeys(req['keys'],waitTime=.15)
         return {'input_sent':True}
@@ -103,10 +117,16 @@ def run(req):
         if match: matches.append(control)
     if len(matches)!=1: raise RuntimeError(f'Expected unique target, found {len(matches)}')
     target=matches[0]
-    native.foreground(hwnd,pid)
+    popup_proof=None
+    main_hwnd=req.get('window_profile',{}).get('hwnd',hwnd)
+    if hwnd!=main_hwnd:
+        observed=next(item for item in native.windows(pid) if item['hwnd']==hwnd)
+        if observed['owner']==0:
+            popup_proof={**observed,'root_class':root.ClassName}
+    native.guard_input(hwnd,pid,activate=True,popup_proof=popup_proof)
     r=record(target)
     if not r['enabled']: raise RuntimeError('Target is disabled')
-    x,y=native.guard_point(hwnd,pid,r['rect'])
+    x,y=native.guard_point(hwnd,pid,r['rect'],popup_proof=popup_proof)
     if action=='click':
         native.click_point(x,y)
     elif action=='invoke':
@@ -118,6 +138,7 @@ def run(req):
         if not p: raise RuntimeError('No ValuePattern')
         target.SetFocus()
         if not target.HasKeyboardFocus: raise RuntimeError('Edit focus guard failed')
+        native.guard_input(hwnd,pid)
         p.SetValue(req['value'])
         time.sleep(.2)
         if p.Value != req['value']: raise RuntimeError('Value readback differs')
@@ -125,9 +146,11 @@ def run(req):
         a.Click(x,y,waitTime=.1)
         target.SetFocus()
         if not target.HasKeyboardFocus: raise RuntimeError('Edit focus guard failed')
+        native.guard_input(hwnd,pid)
         a.SendKeys('{Ctrl}a',waitTime=.05)
         for char in req['value']:
             if not target.HasKeyboardFocus: raise RuntimeError('Focus changed during text input')
+            native.guard_input(hwnd,pid)
             a.SendUnicodeChar(char)
         # SendInput enqueues input; the dialog can finish handling it after the
         # sending call returns. Observe completion without retyping the path.
