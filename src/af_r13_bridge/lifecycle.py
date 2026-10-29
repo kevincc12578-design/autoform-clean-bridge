@@ -278,6 +278,27 @@ class Lifecycle:
         self._sample("after_close", after)
         self.blocked = was_blocked or bool(self.evidence_errors)
 
+    def register_business_save(self, design: Design, path: str | Path) -> Design:
+        """Register only a Start save transaction independently checked by adapter.
+
+        This narrow path does not allow ordinary save to overwrite existing files.
+        The normal save operation remains required before workflow final closure.
+        """
+        actual = self._require_owned(design)
+        target = self._target(path, must_exist=True)
+        proof = actual.metadata.get('save_transaction',{})
+        rid = actual.metadata.get('runtime_id')
+        if (not proof.get('ok') or proof.get('before_rid')!=rid or proof.get('after_rid')!=rid
+                or not actual.path or canonical_path(actual.path)!=canonical_path(target)
+                or canonical_path(proof.get('path',''))!=canonical_path(target)
+                or proof.get('path_readback')!=str(target) or proof.get('sha256')!=digest(target)
+                or not actual.metadata.get('save_verified')):
+            raise BridgeError('business_save_unverified','GUI Start save evidence did not pass independent lifecycle checks')
+        self.saved[canonical_path(target)]={'path':str(target),'sha256':digest(target),'size':target.stat().st_size}
+        self.owned[actual.token]=actual
+        self._event('business_save_registered',document_id=actual.token,file=self.saved[canonical_path(target)],transaction=proof)
+        return actual
+
     def reopen_design(self, path: str | Path) -> Design:
         self._ready()
         if self.owned:

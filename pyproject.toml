@@ -4,10 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "af-r13-bridge"
-version = "0.1.0"
-description = "Independent AutoForm R13 bridge with verified document ownership and lifecycle"
+version = "0.2.0"
+description = "AutoForm R13 Bridge with selected business operations, solver and owned document lifecycle"
 requires-python = ">=3.11"
 dependencies = ["uiautomation==2.0.29; sys_platform == 'win32'", "comtypes==1.4.17; sys_platform == 'win32'", "psutil==7.2.2", "pillow==13.0.0"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+af_r13_bridge = ["operations/calibration/*.json", "operations/calibration/*.png"]

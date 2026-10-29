@@ -1,0 +1,132 @@
+{
+  "authorization_date": "2026-10-29",
+  "policy": "User authorized selective reuse of validated business code; no runtime old project dependencies.",
+  "sources": [
+    {
+      "path": "D:\\ai库\\autoform自动化\\af_workflow\\simulation_actions.py",
+      "sha256": "54e388a627f661d7a37390d10169db6ec063f8846816a21ac68f218801513ec2",
+      "selection": "GUI Start, current-job/full-path binding, log acquisition and strict completion; old runtime/config/helper imports removed, sidecar switched to this package with new process containment, same-tab save_transaction added."
+    },
+    {
+      "path": "D:\\ai库\\autoform自动化\\af_workflow\\runner.py",
+      "sha256": "e3303793c2d059975a851cdbc939f427e45b8cfe531ddfe8a1a406dcd63dcc02",
+      "selection": [
+        "program_end_evidence",
+        "solver_completion_evidence",
+        "native_geometry_evidence"
+      ]
+    },
+    {
+      "path": "D:\\ai库\\autoform自动化\\af_workflow\\native_job.py",
+      "sha256": "0687e9e525d7f2166ec87d1352e76c9809635ec7e7dc7da3ee724b41371d33b9",
+      "selection": "Reference for file-based stdout/stderr and job result fields only; process lifetime rewritten using existing new Bridge WindowsWorkerJob, no old taskkill wrapper."
+    },
+    {
+      "path": "D:\\ai库\\autoform自动化\\af_workflow\\_reuse\\autoform_bridge\\batch.py",
+      "sha256": "f7b44c79c87b8f54f9502ec5893e56d0a048ba71a919095aee781bf8b3015961",
+      "selection": "PROGRAM_END_RE plus validated -jn/-puse/-check/-ls argument grammar only; no import or full module copy."
+    }
+  ],
+  "previous_evidence": {
+    "path": "D:\\ai库\\autoform自动化\\runs\\latest-full-chain-05\\chain.json",
+    "sha256": "bc5e835d735f8ed2d48eff0014d10eeaf2530ab021d79d55698de8ae5b238f14",
+    "scope": "Historical 17-stage business workflow, three independent empty designs. Not new Bridge validation; no complete save/close lifecycle."
+  },
+  "new_targets": [
+    "src/af_r13_bridge/operations/simulation.py",
+    "src/af_r13_bridge/solver.py"
+  ],
+  "new_dependencies": [
+    "existing Evidence",
+    "existing WindowsWorkerJob",
+    "existing sanitized_environment",
+    "new operations.ui",
+    "Python standard library",
+    "uiautomation"
+  ],
+  "command_adaptation": {
+    "script": "D:/Program Files/AutoForm/AFplus/R13F/bin/AFFormingJob_R13.cmd",
+    "content": "@echo off; prepend installation bin to PATH; AFFormingJob %*",
+    "choice": "Invoke AFFormingJob.exe directly with the same parameters and child-only PATH prefix; avoid shell wrapper.",
+    "script_sha256": "f78f01168bbf4e62f92a76968cd9bfab3006d8c225ca2709ba339827464839ca"
+  },
+  "new_validation": {
+    "status": "verified_specified_three_run_scenario",
+    "evidence": "runs/business-acceptance-20261029/chain.json",
+    "summary": "docs/evidence/business-acceptance-2026-10-29.json",
+    "version_fingerprint": "fbe75190f0f9e18be07001cce742a9aaab1b29ec574e359638f831c1c8d1afcf",
+    "unit_tests_passed": 144,
+    "independent_audit_checks": 3872,
+    "scope": "Specified baogu/S355MC/4 mm; 26 stages per run, GUI and native solver, same-file persistence, both closes, owned zero. No full-field or tolerance acceptance."
+  },
+  "limits": [
+    "GUI timeout does not cancel a GUI-submitted AutoForm job. Caller must not treat worker termination as GUI cancellation.",
+    "Native cancel_job requests cancellation of its recorded runner only; status must confirm terminal cancellation.",
+    "No full Springback field or engineering tolerance result is read.",
+    "Native solve copy is separate from GUI original and does not update the GUI file."
+  ],
+  "final_artifacts_recorded_date": "2026-10-29",
+  "final_artifact_scope": "Current source/calibration snapshot before final three-run acceptance; hashes do not establish live validation.",
+  "final_artifacts": [
+    {
+      "path": "src/af_r13_bridge/operations/simulation.py",
+      "sha256": "e0286fad017c7c40d5d82e963e2fc7b28d22939bf7fc59ef0e7866fe858a8dc7",
+      "size_bytes": 30144,
+      "role": "selected_gui_simulation_business"
+    },
+    {
+      "path": "src/af_r13_bridge/solver.py",
+      "sha256": "4e29fab23999c4a94af01ba010405824e8d6d3961f8272e27e1bb605482ed224",
+      "size_bytes": 19621,
+      "role": "selected_solver_evidence_and_new_owned_job_adapter"
+    }
+  ],
+  "source_hash_verification": {
+    "checked_on": "2026-10-29",
+    "method": "read-only SHA256 of original source/evidence files; selected function hashes use UTF-8 ast.get_source_segment",
+    "ok": true,
+    "file_records_checked": 5,
+    "function_spans_checked": 0,
+    "files": [
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\simulation_actions.py",
+        "recorded_sha256": "54e388a627f661d7a37390d10169db6ec063f8846816a21ac68f218801513ec2",
+        "actual_sha256": "54e388a627f661d7a37390d10169db6ec063f8846816a21ac68f218801513ec2",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\runner.py",
+        "recorded_sha256": "e3303793c2d059975a851cdbc939f427e45b8cfe531ddfe8a1a406dcd63dcc02",
+        "actual_sha256": "e3303793c2d059975a851cdbc939f427e45b8cfe531ddfe8a1a406dcd63dcc02",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\native_job.py",
+        "recorded_sha256": "0687e9e525d7f2166ec87d1352e76c9809635ec7e7dc7da3ee724b41371d33b9",
+        "actual_sha256": "0687e9e525d7f2166ec87d1352e76c9809635ec7e7dc7da3ee724b41371d33b9",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\_reuse\\autoform_bridge\\batch.py",
+        "recorded_sha256": "f7b44c79c87b8f54f9502ec5893e56d0a048ba71a919095aee781bf8b3015961",
+        "actual_sha256": "f7b44c79c87b8f54f9502ec5893e56d0a048ba71a919095aee781bf8b3015961",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\runs\\latest-full-chain-05\\chain.json",
+        "recorded_sha256": "bc5e835d735f8ed2d48eff0014d10eeaf2530ab021d79d55698de8ae5b238f14",
+        "actual_sha256": "bc5e835d735f8ed2d48eff0014d10eeaf2530ab021d79d55698de8ae5b238f14",
+        "matches": true
+      }
+    ]
+  },
+  "final_validation": {
+    "status": "verified_specified_three_run_scenario",
+    "evidence": "runs/business-acceptance-20261029/chain.json",
+    "summary": "docs/evidence/business-acceptance-2026-10-29.json",
+    "version_fingerprint": "fbe75190f0f9e18be07001cce742a9aaab1b29ec574e359638f831c1c8d1afcf",
+    "unit_tests_passed": 144,
+    "independent_audit_checks": 3872,
+    "scope": "Specified baogu/S355MC/4 mm; 26 stages per run, GUI and native solver, same-file persistence, both closes, owned zero. No full-field or tolerance acceptance."
+  }
+}

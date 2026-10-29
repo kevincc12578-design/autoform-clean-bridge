@@ -1,0 +1,877 @@
+{
+  "date": "2026-10-29",
+  "package": "af-r13-bridge",
+  "version": "0.2.0",
+  "ok": true,
+  "scope": "Specified baogu STEP, S355MC 4 mm, local R13.0.1 Chinese UI; zero manual clicks during the three-run command.",
+  "version_fingerprint": "fbe75190f0f9e18be07001cce742a9aaab1b29ec574e359638f831c1c8d1afcf",
+  "three_consecutive_verified": true,
+  "cli_exit_code": 0,
+  "command": "python -I -m af_r13_bridge chain --workflow baogu --live --runs 3 --out runs/business-acceptance-20261029",
+  "unit_tests": {
+    "count": 144,
+    "seconds": 3.719,
+    "passed": true,
+    "log": "runs/business-verification-20261029-01/unit-tests.log",
+    "sha256": "7a3254274e0b6d649e6a8ae660794fe6727f25106497178cc53319b4e4199996"
+  },
+  "independent_audit": {
+    "ok": true,
+    "checks": 3872,
+    "script": "scripts/verify_business_acceptance.py",
+    "script_sha256": "1863ec46321ea88a118c64fda6352a276948451366af0509e85ffcc40a88dc36",
+    "report": "runs/business-acceptance-20261029/acceptance-audit.json",
+    "report_sha256": "859fe3d9ac27c689b0d0fb8830a24af217758bb8777246d740f98fa7e7519da0"
+  },
+  "raw_evidence": {
+    "directory": "runs/business-acceptance-20261029",
+    "chain_sha256": "fe86a456e6c59925e12f2aa345d61d4404bd6b3b352b3a3bf7b22a10678d57b6",
+    "code_manifest_sha256": "42cf2f8d225fe3c08eb2ce481cc723410afb2c1a704bdfe3b4815b734c5c5b3c",
+    "raw_artifacts_remain_local": true
+  },
+  "inputs": [
+    {
+      "role": "part",
+      "filename": "抱箍.STEP",
+      "sha256": "1736337a75ca7f4ec2eb5787917aea573a6764c1c808c2039937458e9de9448a"
+    },
+    {
+      "role": "material",
+      "filename": "S355MC_4936_4.00.mtb",
+      "sha256": "fa566b1fe415cafa12aef89b15d4f92b35901d42d4c2309fb4b5abf46e56147e"
+    }
+  ],
+  "runs": [
+    {
+      "run": 1,
+      "seconds": 280.155,
+      "required_stages": 26,
+      "gui_job": {
+        "name": "SingleSim_131FF5EEA6",
+        "id": "131FF5EEA6340C9E-4BC4F471FD93D209-7393C60856ABAF0F",
+        "line": 116,
+        "source": "D:\\ai库\\autoform-clean-bridge\\runs\\business-acceptance-20261029\\run-1\\抱箍-81c31a793e.afd"
+      },
+      "gui_native_completion": {
+        "ok": true,
+        "end_codes": [
+          0
+        ],
+        "end_markers": [
+          {
+            "line": 1743,
+            "pid": 26800,
+            "code": 0
+          }
+        ],
+        "raw_end_count": 1,
+        "fatal": [],
+        "springback_sequences": [
+          {
+            "convergence_line": 1710,
+            "iterations": 7,
+            "context_line": 1696,
+            "finished_line": 1739,
+            "end": {
+              "line": 1743,
+              "pid": 26800,
+              "code": 0
+            }
+          }
+        ],
+        "geometry": {
+          "operation_c20": true,
+          "material": true,
+          "positive_mesh": true,
+          "both_tools": true
+        }
+      },
+      "gui_target": "D:\\ai库\\autoform-clean-bridge\\runs\\business-acceptance-20261029\\run-1\\抱箍-81c31a793e.afd",
+      "gui_save_hash": "2100e9f867a0c4aefe37e613ab16629e231868bf719889abb570116fecfa6827",
+      "native_jobs": [
+        {
+          "check": true,
+          "job_id": "550eb163c2714839a3f1b8a0f1f356de",
+          "parsed": {
+            "ok": true,
+            "end_codes": [
+              0,
+              0
+            ],
+            "end_markers": [
+              {
+                "line": 298,
+                "pid": 21684,
+                "code": 0
+              },
+              {
+                "line": 605,
+                "pid": 21684,
+                "code": 0
+              }
+            ],
+            "raw_end_count": 2,
+            "fatal": [],
+            "springback_sequences": [],
+            "geometry": {
+              "operation_c20": true,
+              "material": true,
+              "positive_mesh": true,
+              "both_tools": true
+            }
+          },
+          "stdout": "D:\\ai库\\autoform-clean-bridge\\runs\\business-acceptance-20261029\\run-1\\solver\\input-check\\stdout.log"
+        },
+        {
+          "check": false,
+          "job_id": "89d67606147e4ea9a1f1439547c332c1",
+          "parsed": {
+            "ok": true,
+            "end_codes": [
+              0,
+              0
+            ],
+            "end_markers": [
+              {
+                "line": 1743,
+                "pid": 26592,
+                "code": 0
+              },
+              {
+                "line": 3495,
+                "pid": 26592,
+                "code": 0
+              }
+            ],
+            "raw_end_count": 2,
+            "fatal": [],
+            "springback_sequences": [
+              {
+                "convergence_line": 1710,
+                "iterations": 7,
+                "context_line": 1696,
+                "finished_line": 1739,
+                "end": {
+                  "line": 1743,
+                  "pid": 26592,
+                  "code": 0
+                }
+              },
+              {
+                "convergence_line": 3462,
+                "iterations": 7,
+                "context_line": 3448,
+                "finished_line": 3491,
+                "end": {
+                  "line": 3495,
+                  "pid": 26592,
+                  "code": 0
+                }
+              }
+            ],
+            "geometry": {
+              "operation_c20": true,
+              "material": true,
+              "positive_mesh": true,
+              "both_tools": true
+            }
+          },
+          "stdout": "D:\\ai库\\autoform-clean-bridge\\runs\\business-acceptance-20261029\\run-1\\solver\\full-solve\\stdout.log"
+        }
+      ],
+      "semantic_values": {
+        "part": {
+          "part_count": 1,
+          "part_names": [
+            "抱箍-基体-法兰1"
+          ],
+          "material_stem": "S355MC_4936_4.00",
+          "thickness_mm": 4.0,
+          "angles_deg": {
+            "X": -180.0,
+            "Y'": 0.0,
+            "Z''": 0.0
+          }
+        },
+        "process": {
+          "operation": "C-20",
+          "draw_region_assignment": true,
+          "blank_contour_committed": true,
+          "blank_source_identity": null,
+          "automatic_tools": [
+            {
+              "tool": "凸模",
+              "model_mode": "自动",
+              "automatic_contact": true
+            },
+            {
+              "tool": "凹模",
+              "model_mode": "自动",
+              "automatic_contact": true
+            }
+          ],
+          "friction": {
+            "kind": "库仑摩擦",
+            "parameters": [
+              {
+                "name": "",
+                "value": "Mill Oil",
+                "kind": "ComboBoxControl"
+              },
+              {
+                "name": "",
+                "value": "",
+                "kind": "SpinnerControl"
+              },
+              {
+                "name": "压力指数",
+                "value": "",
+                "kind": "SpinnerControl"
+              },
+              {
+                "name": "参考压力",
+                "value": "",
+                "kind": "SpinnerControl"
+              },
+              {
+                "name": "参考速度",
+                "value": "",
+                "kind": "SpinnerControl"
+              },
+              {
+                "name": "摩擦系数",
+                "value": "0.15",
+                "kind": "SpinnerControl"
+              },
+              {
+                "name": "速度因子",
+                "value": "",
+                "kind": "SpinnerControl"
+              }
+            ]
+          },
+          "reference_input_present": true,
+          "reference_orientation": null,
+          "measurement_plans": [
+            "测量方案"
+          ],
+          "free_springback": true
+        }
+      },
+      "baseline_count": 0,
+      "owned_remaining": 0,
+      "unknown_remaining": 0,
+      "final_file": {
+        "path": "D:\\ai库\\autoform-clean-bridge\\runs\\business-acceptance-20261029\\run-1\\抱箍-81c31a793e.afd",
+        "sha256": "a735b58b62d69e60d9747b296db62ebec01a4fccea63f6a9f37513171033f4fd",
+        "role": "GUI original; saved, closed, same-file reopened and closed again"
+      },
+      "resources": [
+        {
+          "pid": 24360,
+          "working_set_bytes": 264032256,
+          "private_bytes": 844886016,
+          "stage": "start",
+          "design_count": 0,
+          "owned_count": 0
+        },
+        {
+          "pid": 24360,
+          "working_set_bytes": 349528064,
+          "private_bytes": 872132608,
+          "stage": "create_design",
+          "design_count": 1,
+          "owned_count": 1
+        },
+        {
+          "pid": 24360,
+          "working_set_bytes": 245121024,
+          "private_bytes": 845172736,
+          "stage": "after_close",
+          "design_count": 0,
+          "owned_count": 0
+        },
+        {
+          "pid": 24360,
+          "working_set_bytes": 511516672,
+          "private_bytes": 908111872,
+          "stage": "reopen_design",
+          "design_count": 1,
+          "owned_count": 1
+        },
+        {
+          "pid": 24360,
+          "working_set_bytes": 259235840,
+          "private_bytes": 913698816,
+          "stage": "after_close",
+          "design_count": 0,
+          "owned_count": 0
+        },
+        {
+          "pid": 24360,
+          "working_set_bytes": 259280896,
+          "private_bytes": 913567744,
+          "stage": "end",
+          "design_count": 0,
+          "owned_count": 0
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "seconds": 282.801,
+      "required_stages": 26,
+      "gui_job": {
+        "name": "SingleSim_D16414229D",
+        "id": "D16414229D9BA2FB-9A927D4F525D5351-F3090C5D8F51570C",
+        "line": 116,
+        "source": "D:\\ai库\\autoform-clean-bridge\\runs\\business-acceptance-20261029\\run-2\\抱箍-f6eb71d695.afd"
+      },
+      "gui_native_completion": {
+        "ok": true,
+        "end_codes": [
+          0
+        ],
+        "end_markers": [
+          {
+            "line": 1743,
+            "pid": 42508,
+            "code": 0
+          }
+        ],
+        "raw_end_count": 1,
+        "fatal": [],
+        "springback_sequences": [
+          {
+            "convergence_line": 1710,
+            "iterations": 7,
+            "context_line": 1696,
+            "finished_line": 1739,
+            "end": {
+              "line": 1743,
+              "pid": 42508,
+              "code": 0
+            }
+          }
+        ],
+        "geometry": {
+          "operation_c20": true,
+          "material": true,
+          "positive_mesh": true,
+          "both_tools": true
+        }
+      },
+      "gui_target": "D:\\ai库\\autoform-clean-bridge\\runs\\business-acceptance-20261029\\run-2\\抱箍-f6eb71d695.afd",
+      "gui_save_hash": "c69f30963ee1d6f3d573ac126daeb96e8c58ee1fcbd30be2985255aea62d9f79",
+      "native_jobs": [
+        {
+          "check": true,
+          "job_id": "fefb9d3372fa4fd38d2c10996535f9fb",
+          "parsed": {
+            "ok": true,
+            "end_codes": [
+              0,
+              0
+            ],
+            "end_markers": [
+              {
+                "line": 298,
+                "pid": 22384,
+                "code": 0
+              },
+              {
+                "line": 605,
+                "pid": 22384,
+                "code": 0
+              }
+            ],
+            "raw_end_count": 2,
+            "fatal": [],
+            "springback_sequences": [],
+            "geometry": {
+              "operation_c20": true,
+              "material": true,
+              "positive_mesh": true,
+              "both_tools": true
+            }
+          },
+          "stdout": "D:\\ai库\\autoform-clean-bridge\\runs\\business-acceptance-20261029\\run-2\\solver\\input-check\\stdout.log"
+        },
+        {
+          "check": false,
+          "job_id": "400fed2178ff49d795c115bc7073de3f",
+          "parsed": {
+            "ok": true,
+            "end_codes": [
+              0,
+              0
+            ],
+            "end_markers": [
+              {
+                "line": 1743,
+                "pid": 22336,
+                "code": 0
+              },
+              {
+                "line": 3495,
+                "pid": 22336,
+                "code": 0
+              }
+            ],
+            "raw_end_count": 2,
+            "fatal": [],
+            "springback_sequences": [
+              {
+                "convergence_line": 1710,
+                "iterations": 7,
+                "context_line": 1696,
+                "finished_line": 1739,
+                "end": {
+                  "line": 1743,
+                  "pid": 22336,
+                  "code": 0
+                }
+              },
+              {
+                "convergence_line": 3462,
+                "iterations": 7,
+                "context_line": 3448,
+                "finished_line": 3491,
+                "end": {
+                  "line": 3495,
+                  "pid": 22336,
+                  "code": 0
+                }
+              }
+            ],
+            "geometry": {
+              "operation_c20": true,
+              "material": true,
+              "positive_mesh": true,
+              "both_tools": true
+            }
+          },
+          "stdout": "D:\\ai库\\autoform-clean-bridge\\runs\\business-acceptance-20261029\\run-2\\solver\\full-solve\\stdout.log"
+        }
+      ],
+      "semantic_values": {
+        "part": {
+          "part_count": 1,
+          "part_names": [
+            "抱箍-基体-法兰1"
+          ],
+          "material_stem": "S355MC_4936_4.00",
+          "thickness_mm": 4.0,
+          "angles_deg": {
+            "X": -180.0,
+            "Y'": 0.0,
+            "Z''": 0.0
+          }
+        },
+        "process": {
+          "operation": "C-20",
+          "draw_region_assignment": true,
+          "blank_contour_committed": true,
+          "blank_source_identity": null,
+          "automatic_tools": [
+            {
+              "tool": "凸模",
+              "model_mode": "自动",
+              "automatic_contact": true
+            },
+            {
+              "tool": "凹模",
+              "model_mode": "自动",
+              "automatic_contact": true
+            }
+          ],
+          "friction": {
+            "kind": "库仑摩擦",
+            "parameters": [
+              {
+                "name": "",
+                "value": "Mill Oil",
+                "kind": "ComboBoxControl"
+              },
+              {
+                "name": "",
+                "value": "",
+                "kind": "SpinnerControl"
+              },
+              {
+                "name": "压力指数",
+                "value": "",
+                "kind": "SpinnerControl"
+              },
+              {
+                "name": "参考压力",
+                "value": "",
+                "kind": "SpinnerControl"
+              },
+              {
+                "name": "参考速度",
+                "value": "",
+                "kind": "SpinnerControl"
+              },
+              {
+                "name": "摩擦系数",
+                "value": "0.15",
+                "kind": "SpinnerControl"
+              },
+              {
+                "name": "速度因子",
+                "value": "",
+                "kind": "SpinnerControl"
+              }
+            ]
+          },
+          "reference_input_present": true,
+          "reference_orientation": null,
+          "measurement_plans": [
+            "测量方案"
+          ],
+          "free_springback": true
+        }
+      },
+      "baseline_count": 0,
+      "owned_remaining": 0,
+      "unknown_remaining": 0,
+      "final_file": {
+        "path": "D:\\ai库\\autoform-clean-bridge\\runs\\business-acceptance-20261029\\run-2\\抱箍-f6eb71d695.afd",
+        "sha256": "a254d2839b93d90cb93cc8e84c5812a5b4f54983f28bff321505a4670d04bb81",
+        "role": "GUI original; saved, closed, same-file reopened and closed again"
+      },
+      "resources": [
+        {
+          "pid": 24360,
+          "working_set_bytes": 259715072,
+          "private_bytes": 914100224,
+          "stage": "start",
+          "design_count": 0,
+          "owned_count": 0
+        },
+        {
+          "pid": 24360,
+          "working_set_bytes": 359333888,
+          "private_bytes": 921317376,
+          "stage": "create_design",
+          "design_count": 1,
+          "owned_count": 1
+        },
+        {
+          "pid": 24360,
+          "working_set_bytes": 251367424,
+          "private_bytes": 950939648,
+          "stage": "after_close",
+          "design_count": 0,
+          "owned_count": 0
+        },
+        {
+          "pid": 24360,
+          "working_set_bytes": 511524864,
+          "private_bytes": 959463424,
+          "stage": "reopen_design",
+          "design_count": 1,
+          "owned_count": 1
+        },
+        {
+          "pid": 24360,
+          "working_set_bytes": 275091456,
+          "private_bytes": 1008828416,
+          "stage": "after_close",
+          "design_count": 0,
+          "owned_count": 0
+        },
+        {
+          "pid": 24360,
+          "working_set_bytes": 275103744,
+          "private_bytes": 1008828416,
+          "stage": "end",
+          "design_count": 0,
+          "owned_count": 0
+        }
+      ]
+    },
+    {
+      "run": 3,
+      "seconds": 284.173,
+      "required_stages": 26,
+      "gui_job": {
+        "name": "SingleSim_1F75610B2C",
+        "id": "1F75610B2CB22E37-219DA10FD6A48632-33B5CB41188E361C",
+        "line": 116,
+        "source": "D:\\ai库\\autoform-clean-bridge\\runs\\business-acceptance-20261029\\run-3\\抱箍-860f1ecbcd.afd"
+      },
+      "gui_native_completion": {
+        "ok": true,
+        "end_codes": [
+          0
+        ],
+        "end_markers": [
+          {
+            "line": 1743,
+            "pid": 13588,
+            "code": 0
+          }
+        ],
+        "raw_end_count": 1,
+        "fatal": [],
+        "springback_sequences": [
+          {
+            "convergence_line": 1710,
+            "iterations": 7,
+            "context_line": 1696,
+            "finished_line": 1739,
+            "end": {
+              "line": 1743,
+              "pid": 13588,
+              "code": 0
+            }
+          }
+        ],
+        "geometry": {
+          "operation_c20": true,
+          "material": true,
+          "positive_mesh": true,
+          "both_tools": true
+        }
+      },
+      "gui_target": "D:\\ai库\\autoform-clean-bridge\\runs\\business-acceptance-20261029\\run-3\\抱箍-860f1ecbcd.afd",
+      "gui_save_hash": "d9616f04ae3c11f0c1663b9ae1c0812b17f73741180cc7d81d0e45d9799e7fad",
+      "native_jobs": [
+        {
+          "check": true,
+          "job_id": "e97fd2b1c3ab48688f3530233eaef821",
+          "parsed": {
+            "ok": true,
+            "end_codes": [
+              0,
+              0
+            ],
+            "end_markers": [
+              {
+                "line": 298,
+                "pid": 35604,
+                "code": 0
+              },
+              {
+                "line": 605,
+                "pid": 35604,
+                "code": 0
+              }
+            ],
+            "raw_end_count": 2,
+            "fatal": [],
+            "springback_sequences": [],
+            "geometry": {
+              "operation_c20": true,
+              "material": true,
+              "positive_mesh": true,
+              "both_tools": true
+            }
+          },
+          "stdout": "D:\\ai库\\autoform-clean-bridge\\runs\\business-acceptance-20261029\\run-3\\solver\\input-check\\stdout.log"
+        },
+        {
+          "check": false,
+          "job_id": "707a225320e347f5b3732010bce46237",
+          "parsed": {
+            "ok": true,
+            "end_codes": [
+              0,
+              0
+            ],
+            "end_markers": [
+              {
+                "line": 1743,
+                "pid": 29792,
+                "code": 0
+              },
+              {
+                "line": 3495,
+                "pid": 29792,
+                "code": 0
+              }
+            ],
+            "raw_end_count": 2,
+            "fatal": [],
+            "springback_sequences": [
+              {
+                "convergence_line": 1710,
+                "iterations": 7,
+                "context_line": 1696,
+                "finished_line": 1739,
+                "end": {
+                  "line": 1743,
+                  "pid": 29792,
+                  "code": 0
+                }
+              },
+              {
+                "convergence_line": 3462,
+                "iterations": 7,
+                "context_line": 3448,
+                "finished_line": 3491,
+                "end": {
+                  "line": 3495,
+                  "pid": 29792,
+                  "code": 0
+                }
+              }
+            ],
+            "geometry": {
+              "operation_c20": true,
+              "material": true,
+              "positive_mesh": true,
+              "both_tools": true
+            }
+          },
+          "stdout": "D:\\ai库\\autoform-clean-bridge\\runs\\business-acceptance-20261029\\run-3\\solver\\full-solve\\stdout.log"
+        }
+      ],
+      "semantic_values": {
+        "part": {
+          "part_count": 1,
+          "part_names": [
+            "抱箍-基体-法兰1"
+          ],
+          "material_stem": "S355MC_4936_4.00",
+          "thickness_mm": 4.0,
+          "angles_deg": {
+            "X": -180.0,
+            "Y'": 0.0,
+            "Z''": 0.0
+          }
+        },
+        "process": {
+          "operation": "C-20",
+          "draw_region_assignment": true,
+          "blank_contour_committed": true,
+          "blank_source_identity": null,
+          "automatic_tools": [
+            {
+              "tool": "凸模",
+              "model_mode": "自动",
+              "automatic_contact": true
+            },
+            {
+              "tool": "凹模",
+              "model_mode": "自动",
+              "automatic_contact": true
+            }
+          ],
+          "friction": {
+            "kind": "库仑摩擦",
+            "parameters": [
+              {
+                "name": "",
+                "value": "Mill Oil",
+                "kind": "ComboBoxControl"
+              },
+              {
+                "name": "",
+                "value": "",
+                "kind": "SpinnerControl"
+              },
+              {
+                "name": "压力指数",
+                "value": "",
+                "kind": "SpinnerControl"
+              },
+              {
+                "name": "参考压力",
+                "value": "",
+                "kind": "SpinnerControl"
+              },
+              {
+                "name": "参考速度",
+                "value": "",
+                "kind": "SpinnerControl"
+              },
+              {
+                "name": "摩擦系数",
+                "value": "0.15",
+                "kind": "SpinnerControl"
+              },
+              {
+                "name": "速度因子",
+                "value": "",
+                "kind": "SpinnerControl"
+              }
+            ]
+          },
+          "reference_input_present": true,
+          "reference_orientation": null,
+          "measurement_plans": [
+            "测量方案"
+          ],
+          "free_springback": true
+        }
+      },
+      "baseline_count": 0,
+      "owned_remaining": 0,
+      "unknown_remaining": 0,
+      "final_file": {
+        "path": "D:\\ai库\\autoform-clean-bridge\\runs\\business-acceptance-20261029\\run-3\\抱箍-860f1ecbcd.afd",
+        "sha256": "4f93abc41a9bbab06af6d93b3f6c3ccf584778fcc1682ebb8aa4e03866b022cb",
+        "role": "GUI original; saved, closed, same-file reopened and closed again"
+      },
+      "resources": [
+        {
+          "pid": 24360,
+          "working_set_bytes": 275103744,
+          "private_bytes": 1008828416,
+          "stage": "start",
+          "design_count": 0,
+          "owned_count": 0
+        },
+        {
+          "pid": 24360,
+          "working_set_bytes": 372928512,
+          "private_bytes": 1014702080,
+          "stage": "create_design",
+          "design_count": 1,
+          "owned_count": 1
+        },
+        {
+          "pid": 24360,
+          "working_set_bytes": 251875328,
+          "private_bytes": 1009160192,
+          "stage": "after_close",
+          "design_count": 0,
+          "owned_count": 0
+        },
+        {
+          "pid": 24360,
+          "working_set_bytes": 524189696,
+          "private_bytes": 1021636608,
+          "stage": "reopen_design",
+          "design_count": 1,
+          "owned_count": 1
+        },
+        {
+          "pid": 24360,
+          "working_set_bytes": 285433856,
+          "private_bytes": 1077616640,
+          "stage": "after_close",
+          "design_count": 0,
+          "owned_count": 0
+        },
+        {
+          "pid": 24360,
+          "working_set_bytes": 285618176,
+          "private_bytes": 1077583872,
+          "stage": "end",
+          "design_count": 0,
+          "owned_count": 0
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Full AFD result fields and product springback tolerance not read or accepted.",
+    "GUI job cancellation not implemented; native cancellation only offline process-tested.",
+    "No claim of all native memory released or long-term memory stability.",
+    "Baseline was empty in all three current rounds; historical one-baseline lifecycle remains separate."
+  ]
+}

@@ -18,6 +18,9 @@ def run(req):
     if not audit['ok']: raise RuntimeError('Worker isolation audit failed: '+str(audit['findings']))
     Path(req['_audit_path']).with_suffix('.before.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2),encoding='utf-8')
     a.SetGlobalSearchTimeout(2)
+    if req.get('action') == 'business':
+        from ..operations.dispatch import run as run_business
+        return run_business(req)
     hwnd, pid = int(req['hwnd']), int(req['pid'])
     if native.window_pid(hwnd)!=pid:
         raise RuntimeError('Stale window')
@@ -105,7 +108,11 @@ def run(req):
     if not r['enabled']: raise RuntimeError('Target is disabled')
     x,y=native.guard_point(hwnd,pid,r['rect'])
     if action=='click':
-        a.Click(x,y,waitTime=.15)
+        native.click_point(x,y)
+    elif action=='invoke':
+        pattern=target.GetInvokePattern()
+        if pattern is None: raise RuntimeError('Target does not support InvokePattern')
+        pattern.Invoke()
     elif action=='value':
         p=target.GetValuePattern()
         if not p: raise RuntimeError('No ValuePattern')

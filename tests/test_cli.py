@@ -68,7 +68,7 @@ class CliTests(unittest.TestCase):
 
     def test_unimplemented_business_method_reports_implementation_gap(self):
         path = self.request({})
-        code, result = self.run_cli(["call", "solve", "--request", path])
+        code, result = self.run_cli(["call", "optimize_springback", "--request", path])
         self.assertEqual(code, 1)
         self.assertEqual(result["error"]["code"], "not_implemented")
         self.factory.assert_not_called()
@@ -163,7 +163,8 @@ class CliTests(unittest.TestCase):
         self.assertEqual(result["data"]["project_root"], "独立新库")
         code, result = self.run_cli(["capabilities"])
         self.assertEqual(code, 0)
-        self.assertEqual(result["data"]["solver"], "not_implemented")
+        self.assertEqual(result["data"]["solver"], "implemented; validation is run-scoped")
+        self.assertIn('solve', result['data']['business_operations'])
         self.factory.assert_not_called()
 
     def test_discover_is_explicitly_read_only(self):

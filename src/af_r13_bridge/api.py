@@ -9,21 +9,29 @@ from typing import Any
 from .lifecycle import Adapter, Lifecycle
 from .models import BridgeError, Design, Result
 
+BUSINESS_OPERATIONS = frozenset({'import_part','extract_part','set_direction','set_material','forming_check',
+    'create_plan','assign_operation','visit_die_face','copy_blank','set_friction','configure_tools',
+    'add_reference','set_springback','start_simulation','read_business','solve'})
+
 
 def capabilities() -> dict[str, Any]:
     """Implementation status is deliberately separate from live validation."""
     return {
-        "session_and_lifecycle": "implemented_unverified",
+        "session_and_lifecycle": "implemented",
         "empty_design_lifecycle": "verified_current_scenario",
         "validation_reference": {"date": "2026-10-28", "application": "R13.0.1 local Chinese UI",
-                            "scenario": "One empty design; baseline had zero documents",
-                            "evidence": "runs/lifecycle-20261028-03/result.json",
-                            "elapsed_ms": 31645.719},
+                            "scenario": "One empty design; one baseline document preserved",
+                            "evidence": "runs/lifecycle-20261028-08/result.json",
+                            "elapsed_ms": 39714.699},
         "native_memory_fully_released": False,
         "lifecycle_scope": "One small owned design; save, close, same-file reopen, semantic readback, final close.",
-        "business_bridge": "not_implemented",
-        "baogu_workflow": "not_implemented",
-        "solver": "not_implemented",
+        "business_bridge": "implemented; validation is run-scoped",
+        "baogu_workflow": "implemented; validation is run-scoped",
+        "solver": "implemented; validation is run-scoped",
+        "business_operations": sorted(BUSINESS_OPERATIONS),
+        "business_acceptance_reference": "docs/status-2026-10-29.md; runs/business-acceptance-20261029/chain.json",
+        "gui_solver_cancel": "not_implemented; worker cancellation does not cancel a submitted GUI job",
+        "native_solver_cancel": "cooperative job_id request, confirmed by terminal job state",
         "full_result_fields": "not_implemented",
         "recorder": "not_implemented",
         "live_evidence_required": True,
@@ -119,6 +127,54 @@ class Bridge:
                 document_id = design.token
                 data = {"values": self.lifecycle.readback(design)}
                 scope = "Observed semantic values; readback alone does not prove persistence."
+            elif operation in BUSINESS_OPERATIONS:
+                self.lifecycle._ready()
+                design=self._handle(request)
+                actual=self.lifecycle._require_owned(design)
+                before=self.lifecycle._inventory()
+                self.lifecycle._assert_known_inventory(before)
+                arguments={key:value for key,value in request.items() if key!='document_id'}
+                document_id=design.token
+                try:
+                    if operation=='solve':
+                        from .solver import solve
+                        from .lifecycle import canonical_path, digest
+                        if not actual.path or canonical_path(actual.path) not in self.lifecycle.saved:
+                            raise BridgeError('save_required','Native solve requires this session\'s registered file')
+                        if actual.dirty is True or not actual.metadata.get('save_verified'):
+                            raise BridgeError('save_required','Save the current business state before native solve; an older disk copy is insufficient')
+                        if digest(Path(actual.path))!=self.lifecycle.saved[canonical_path(actual.path)]['sha256']:
+                            raise BridgeError('file_changed','Saved file changed before native solve')
+                        out=self.lifecycle.run_dir/arguments.get('output_name','solver')
+                        if not out.resolve().is_relative_to(self.lifecycle.run_dir):
+                            raise BridgeError('path_not_owned','Solver output must stay within this run')
+                        data=solve(Path(actual.path),out,timeout=arguments.get('timeout',900),license_server=arguments.get('license_server','2375@127.0.0.1'))
+                    else:
+                        if operation=='start_simulation':
+                            target=self.lifecycle._target(arguments['path'],must_exist=False)
+                            if target.exists():
+                                raise BridgeError('overwrite_refused','Start requires a fresh AFD path')
+                            arguments['path']=str(target)
+                            arguments['out']=str(self.lifecycle.run_dir/'gui-solver')
+                        data=self.lifecycle.adapter.business(actual,operation,arguments)
+                        if operation=='start_simulation' and data.get('save_transaction',{}).get('ok'):
+                            updated=self.lifecycle.register_business_save(design,arguments['path'])
+                            self._handles[design.token]=updated
+                    after=self.lifecycle._inventory()
+                    self.lifecycle._assert_baseline(after)
+                    if set(after)!=set(before):
+                        raise BridgeError('business_inventory_changed','Business action changed document inventory')
+                    self.lifecycle._event(operation,document_id=design.token,request=arguments,result=data)
+                    if not data.get('ok'):
+                        self.lifecycle.blocked=True
+                        return Result(False,operation,uuid.uuid4().hex,document_id=document_id,data=data,
+                            error={'code':'business_postcondition_failed','details':data},
+                            verification_scope='Business postcondition failed; later dependent stages must be skipped.').to_dict()
+                except (Exception,KeyboardInterrupt):
+                    self.lifecycle.blocked=True
+                    raise
+                scope='Current owned document business postconditions; persistence and full workflow are separately verified.'
+                conditions={'business_postcondition_verified':True,'baseline_preserved':True}
             elif operation == "cleanup":
                 data = self.lifecycle.cleanup()
                 self._handles = {token: value for token, value in self._handles.items() if token in self.lifecycle.owned}
@@ -134,7 +190,8 @@ class Bridge:
                 scope = "Bridge worker shutdown only; disconnect does not close any design."
             else:
                 raise BridgeError("not_implemented", "This operation is not implemented in the new Bridge.", operation=operation)
-            return Result(True, operation, uuid.uuid4().hex, document_id=document_id, data=data,
+            job_id=data.get('job_id') or (data.get('job',{}).get('id') if isinstance(data.get('job'),dict) else None)
+            return Result(True, operation, uuid.uuid4().hex, document_id=document_id, job_id=job_id, data=data,
                           verification_scope=scope, postconditions=conditions,
                           evidence=[str(self.lifecycle.run_dir / "lifecycle-events.jsonl")],
                           elapsed_ms=round((time.monotonic() - started) * 1000, 3)).to_dict()

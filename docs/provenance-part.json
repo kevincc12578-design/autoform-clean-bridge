@@ -1,0 +1,426 @@
+{
+  "date": "2026-10-29",
+  "authorization": "User explicitly permits selective reuse of validated legacy business code; no legacy runtime dependencies.",
+  "destination": "src/af_r13_bridge/operations/part.py",
+  "sources": [
+    {
+      "path": "D:\\ai库\\autoform自动化\\af_workflow\\part_actions.py",
+      "sha256": "d014bb081b37c49f70ebaf57d77ae76d25199803d9e7f029db5481c80ba724ea"
+    },
+    {
+      "path": "D:\\ai库\\autoform自动化\\af_workflow\\_reuse\\autoform_bridge\\importer.py",
+      "sha256": "351769fd5ba737f2ba44ba239bfa3805788b78bb6a1984a39602c1b646112217"
+    },
+    {
+      "path": "D:\\ai库\\autoform自动化\\af_workflow\\_reuse\\autoform_bridge\\formcheck.py",
+      "sha256": "f8bce4ff1753b965c89e72ab2f08cb8b513a4d127ac43469021343aa878d85b5"
+    },
+    {
+      "path": "D:\\ai库\\autoform自动化\\af_workflow\\runner.py",
+      "sha256": "e3303793c2d059975a851cdbc939f427e45b8cfe531ddfe8a1a406dcd63dcc02"
+    }
+  ],
+  "selection": {
+    "part_actions.py": "Direction reversal/angle parsing, material confirmation including delayed disclaimer, bending Apply/completion business predicates and their local helpers. Unused imports removed.",
+    "importer.py": "Import/extract action order and postconditions only; no template, session, save, conversion or standalone runners.",
+    "formcheck.py": "Bending branch selection semantics; implemented against current unique visible page.",
+    "runner.py": "Persisted angular comparison logic; no old workflow or reopen-copy function."
+  },
+  "adaptations": [
+    "All UI access routed through af_r13_bridge.operations.ui and inherited new worker ownership.",
+    "Import requires an explicit zero part count; missing counts remain unknown.",
+    "Extraction requires action disappearance within current PartSetup page and retained part rows.",
+    "Material import checks file dialog outcome and unclassified secondary windows.",
+    "Persistence returns normalized semantic data separately from transient evidence."
+  ],
+  "historical_verification": "D:/ai库/autoform自动化/runs/latest-full-chain-05: three independent empty designs, 17 stages; historical evidence is not new Bridge acceptance.",
+  "new_verification": {
+    "status": "verified_specified_three_run_scenario",
+    "evidence": "runs/business-acceptance-20261029/chain.json",
+    "summary": "docs/evidence/business-acceptance-2026-10-29.json",
+    "version_fingerprint": "fbe75190f0f9e18be07001cce742a9aaab1b29ec574e359638f831c1c8d1afcf",
+    "unit_tests_passed": 144,
+    "independent_audit_checks": 3872,
+    "scope": "Specified baogu/S355MC/4 mm; 26 stages per run, GUI and native solver, same-file persistence, both closes, owned zero. No full-field or tolerance acceptance."
+  },
+  "selected_functions": [
+    {
+      "name": "_click",
+      "source_start_line": 19,
+      "source_end_line": 21,
+      "source_sha256": "054b21b1cc297d13c4c749432a766a55dc17937f32445fee938c445b5bbd52cd"
+    },
+    {
+      "name": "_wait",
+      "source_start_line": 24,
+      "source_end_line": 32,
+      "source_sha256": "f7c9da2c10cbfe7d37344ef0687de62e64127c77455c5eec38f013da71689a15"
+    },
+    {
+      "name": "_visible",
+      "source_start_line": 35,
+      "source_end_line": 40,
+      "source_sha256": "f315ef28b035de2684a28ec2724ce2c5b4ab200b7bddd7de5ae25b24b63a0a1a"
+    },
+    {
+      "name": "_unique",
+      "source_start_line": 43,
+      "source_end_line": 60,
+      "source_sha256": "5bb3197023f4d0c299a0795c7de95e1099ad8d6ebcc507d5733df76c879124d6"
+    },
+    {
+      "name": "_page",
+      "source_start_line": 63,
+      "source_end_line": 64,
+      "source_sha256": "667fe1d0136c6ef644394442e9b3088f3da953328e6523f3ebe9e8ad5fac841f"
+    },
+    {
+      "name": "_rows",
+      "source_start_line": 67,
+      "source_end_line": 73,
+      "source_sha256": "9822bf1ac3ddb6c47b92ed4f93e129ea9e7ecb8a6b28f506495b4b08082175d0"
+    },
+    {
+      "name": "_degree",
+      "source_start_line": 79,
+      "source_end_line": 83,
+      "source_sha256": "9fc130bf3918feea82fb25f65828231f57a06e2c72fb56262fef47059a928545"
+    },
+    {
+      "name": "_axis",
+      "source_start_line": 86,
+      "source_end_line": 88,
+      "source_sha256": "52674ec937424fafa35f3a757b24f5e9799f925dc980e59aa54d91c9b27c0a86"
+    },
+    {
+      "name": "angles_from_rows",
+      "source_start_line": 91,
+      "source_end_line": 130,
+      "source_sha256": "0ee0573c1e88a3375dd0835599b8de6393a5b2af0bb523cf2d4da37f9a3cf849"
+    },
+    {
+      "name": "read_direction_angles",
+      "source_start_line": 133,
+      "source_end_line": 140,
+      "source_sha256": "50c9114d6f8c91094f3be721c248904a8abf602ff9dcf2c21028e8c5cbeb54e1"
+    },
+    {
+      "name": "_direction_selector",
+      "source_start_line": 143,
+      "source_end_line": 158,
+      "source_sha256": "4808d5ae4adbce007a675d44db99de4fc19f940d0e54606d1364d0e1a72b6d41"
+    },
+    {
+      "name": "_find_reverse_menu",
+      "source_start_line": 161,
+      "source_end_line": 175,
+      "source_sha256": "35b036f2ec8d1e9407ac0877f33b1cffc5e7d9ed606c9d6e48f987549ff0f9c6"
+    },
+    {
+      "name": "reversal_confirmed",
+      "source_start_line": 178,
+      "source_end_line": 185,
+      "source_sha256": "7612f3a85525be6ca0cca5f52680a58755d1b4c304f49c62537c3276cac80baa"
+    },
+    {
+      "name": "apply_auto_tip_and_reverse",
+      "source_start_line": 188,
+      "source_end_line": 234,
+      "source_sha256": "57c0c80c75d543a875edbc43fc4314083ef151f76b300e9787530c6875e6f68a"
+    },
+    {
+      "name": "_status_apply",
+      "source_start_line": 237,
+      "source_end_line": 239,
+      "source_sha256": "7e2a5c8c275fceaad86586a7741080290d139954875c603d1dba6c9e79fc1fa9"
+    },
+    {
+      "name": "bending_result_evidence",
+      "source_start_line": 242,
+      "source_end_line": 287,
+      "source_sha256": "51333e329f2517726916f95e3a677326039b7e7d469e781970e5b5c049f1776e"
+    },
+    {
+      "name": "_bending_state",
+      "source_start_line": 290,
+      "source_end_line": 298,
+      "source_sha256": "806d8f0233c8aacd06f0bfb69a1643ddc10827a22cfa3d59cd079676651c4008"
+    },
+    {
+      "name": "apply_bending_check",
+      "source_start_line": 301,
+      "source_end_line": 365,
+      "source_sha256": "fc561cacdcda87501ef8af27ac8633d6a14c37c4712bcfcfb105fce43762867e"
+    },
+    {
+      "name": "material_matches",
+      "source_start_line": 368,
+      "source_end_line": 378,
+      "source_sha256": "7bace131719ce0dc82aa3a20a44ce1bc9c0e5016e954f41626827567d56e929d"
+    },
+    {
+      "name": "_disclaimer",
+      "source_start_line": 381,
+      "source_end_line": 391,
+      "source_sha256": "9fb4e160b53feca6bf03dec3c997f2a54a1bbd042b6b7379bb887cbf2b53b0c1"
+    },
+    {
+      "name": "_material_window_status",
+      "source_start_line": 394,
+      "source_end_line": 416,
+      "source_sha256": "9e83e04c9c261475b7bcf74d7f63753f83ed95de65b1e03b159da3d9bd0745c0"
+    },
+    {
+      "name": "apply_material",
+      "source_start_line": 419,
+      "source_end_line": 524,
+      "source_sha256": "306e1d26916bae6a816d261ef2bf181bdd006557a2fcb2bb6c044cf59f8fa7f9"
+    }
+  ],
+  "integration_fixes": [
+    {
+      "date": "2026-10-29",
+      "evidence": "runs/business-dev-20261029-01/431541613112100-import_part.json",
+      "failure": "IMPORT_CONFIRMATION_NOT_FOUND despite imported named part and extract entry",
+      "change": "Import completion observes recognized confirmation if present, otherwise requires one visible part matching STEP product+solid names, one enabled extract action, enabled main window, no secondary windows, and 0.4s stable readback. Part21 name parsing is single-solid scoped and does not validate topology.",
+      "validation": "Included in the 144 passing tests and verified by all three new live runs in runs/business-acceptance-20261029."
+    },
+    {
+      "date": "2026-10-29",
+      "evidence": "runs/business-dev-20261029-03/run-1",
+      "failure": "Material picker persisted with preview and inline editor; application cleanup blocked.",
+      "change": "Material attempt records newly created picker ownership/path and editor RuntimeId. Failed operation cancels only its exact-path picker, waits for picker/preview disappearance, then invokes Cancel on its same inline editor within the supervised worker. Original error retained alongside cleanup evidence. Document save/close remains Lifecycle responsibility.",
+      "validation": "Failure-cleanup branches passed offline regressions in the 144-test suite; the normal material path passed all three new live runs. Automatic failure cleanup is not claimed as newly exercised in those successful runs; dev03 independent recovery remains separate evidence."
+    }
+  ],
+  "final_artifacts_recorded_date": "2026-10-29",
+  "final_artifact_scope": "Current source/calibration snapshot before final three-run acceptance; hashes do not establish live validation.",
+  "final_artifacts": [
+    {
+      "path": "src/af_r13_bridge/operations/part.py",
+      "sha256": "8708f3bfb3c99a812d7acd56b29897a14bd74be13595ce7636b77b24b01f8e81",
+      "size_bytes": 49331,
+      "role": "selected_part_business"
+    }
+  ],
+  "source_hash_verification": {
+    "checked_on": "2026-10-29",
+    "method": "read-only SHA256 of original source/evidence files; selected function hashes use UTF-8 ast.get_source_segment",
+    "ok": true,
+    "file_records_checked": 4,
+    "function_spans_checked": 22,
+    "files": [
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\part_actions.py",
+        "recorded_sha256": "d014bb081b37c49f70ebaf57d77ae76d25199803d9e7f029db5481c80ba724ea",
+        "actual_sha256": "d014bb081b37c49f70ebaf57d77ae76d25199803d9e7f029db5481c80ba724ea",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\_reuse\\autoform_bridge\\importer.py",
+        "recorded_sha256": "351769fd5ba737f2ba44ba239bfa3805788b78bb6a1984a39602c1b646112217",
+        "actual_sha256": "351769fd5ba737f2ba44ba239bfa3805788b78bb6a1984a39602c1b646112217",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\_reuse\\autoform_bridge\\formcheck.py",
+        "recorded_sha256": "f8bce4ff1753b965c89e72ab2f08cb8b513a4d127ac43469021343aa878d85b5",
+        "actual_sha256": "f8bce4ff1753b965c89e72ab2f08cb8b513a4d127ac43469021343aa878d85b5",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\runner.py",
+        "recorded_sha256": "e3303793c2d059975a851cdbc939f427e45b8cfe531ddfe8a1a406dcd63dcc02",
+        "actual_sha256": "e3303793c2d059975a851cdbc939f427e45b8cfe531ddfe8a1a406dcd63dcc02",
+        "matches": true
+      }
+    ],
+    "functions": [
+      {
+        "name": "_click",
+        "source_start_line": 19,
+        "source_end_line": 21,
+        "recorded_sha256": "054b21b1cc297d13c4c749432a766a55dc17937f32445fee938c445b5bbd52cd",
+        "actual_sha256": "054b21b1cc297d13c4c749432a766a55dc17937f32445fee938c445b5bbd52cd",
+        "matches": true
+      },
+      {
+        "name": "_wait",
+        "source_start_line": 24,
+        "source_end_line": 32,
+        "recorded_sha256": "f7c9da2c10cbfe7d37344ef0687de62e64127c77455c5eec38f013da71689a15",
+        "actual_sha256": "f7c9da2c10cbfe7d37344ef0687de62e64127c77455c5eec38f013da71689a15",
+        "matches": true
+      },
+      {
+        "name": "_visible",
+        "source_start_line": 35,
+        "source_end_line": 40,
+        "recorded_sha256": "f315ef28b035de2684a28ec2724ce2c5b4ab200b7bddd7de5ae25b24b63a0a1a",
+        "actual_sha256": "f315ef28b035de2684a28ec2724ce2c5b4ab200b7bddd7de5ae25b24b63a0a1a",
+        "matches": true
+      },
+      {
+        "name": "_unique",
+        "source_start_line": 43,
+        "source_end_line": 60,
+        "recorded_sha256": "5bb3197023f4d0c299a0795c7de95e1099ad8d6ebcc507d5733df76c879124d6",
+        "actual_sha256": "5bb3197023f4d0c299a0795c7de95e1099ad8d6ebcc507d5733df76c879124d6",
+        "matches": true
+      },
+      {
+        "name": "_page",
+        "source_start_line": 63,
+        "source_end_line": 64,
+        "recorded_sha256": "667fe1d0136c6ef644394442e9b3088f3da953328e6523f3ebe9e8ad5fac841f",
+        "actual_sha256": "667fe1d0136c6ef644394442e9b3088f3da953328e6523f3ebe9e8ad5fac841f",
+        "matches": true
+      },
+      {
+        "name": "_rows",
+        "source_start_line": 67,
+        "source_end_line": 73,
+        "recorded_sha256": "9822bf1ac3ddb6c47b92ed4f93e129ea9e7ecb8a6b28f506495b4b08082175d0",
+        "actual_sha256": "9822bf1ac3ddb6c47b92ed4f93e129ea9e7ecb8a6b28f506495b4b08082175d0",
+        "matches": true
+      },
+      {
+        "name": "_degree",
+        "source_start_line": 79,
+        "source_end_line": 83,
+        "recorded_sha256": "9fc130bf3918feea82fb25f65828231f57a06e2c72fb56262fef47059a928545",
+        "actual_sha256": "9fc130bf3918feea82fb25f65828231f57a06e2c72fb56262fef47059a928545",
+        "matches": true
+      },
+      {
+        "name": "_axis",
+        "source_start_line": 86,
+        "source_end_line": 88,
+        "recorded_sha256": "52674ec937424fafa35f3a757b24f5e9799f925dc980e59aa54d91c9b27c0a86",
+        "actual_sha256": "52674ec937424fafa35f3a757b24f5e9799f925dc980e59aa54d91c9b27c0a86",
+        "matches": true
+      },
+      {
+        "name": "angles_from_rows",
+        "source_start_line": 91,
+        "source_end_line": 130,
+        "recorded_sha256": "0ee0573c1e88a3375dd0835599b8de6393a5b2af0bb523cf2d4da37f9a3cf849",
+        "actual_sha256": "0ee0573c1e88a3375dd0835599b8de6393a5b2af0bb523cf2d4da37f9a3cf849",
+        "matches": true
+      },
+      {
+        "name": "read_direction_angles",
+        "source_start_line": 133,
+        "source_end_line": 140,
+        "recorded_sha256": "50c9114d6f8c91094f3be721c248904a8abf602ff9dcf2c21028e8c5cbeb54e1",
+        "actual_sha256": "50c9114d6f8c91094f3be721c248904a8abf602ff9dcf2c21028e8c5cbeb54e1",
+        "matches": true
+      },
+      {
+        "name": "_direction_selector",
+        "source_start_line": 143,
+        "source_end_line": 158,
+        "recorded_sha256": "4808d5ae4adbce007a675d44db99de4fc19f940d0e54606d1364d0e1a72b6d41",
+        "actual_sha256": "4808d5ae4adbce007a675d44db99de4fc19f940d0e54606d1364d0e1a72b6d41",
+        "matches": true
+      },
+      {
+        "name": "_find_reverse_menu",
+        "source_start_line": 161,
+        "source_end_line": 175,
+        "recorded_sha256": "35b036f2ec8d1e9407ac0877f33b1cffc5e7d9ed606c9d6e48f987549ff0f9c6",
+        "actual_sha256": "35b036f2ec8d1e9407ac0877f33b1cffc5e7d9ed606c9d6e48f987549ff0f9c6",
+        "matches": true
+      },
+      {
+        "name": "reversal_confirmed",
+        "source_start_line": 178,
+        "source_end_line": 185,
+        "recorded_sha256": "7612f3a85525be6ca0cca5f52680a58755d1b4c304f49c62537c3276cac80baa",
+        "actual_sha256": "7612f3a85525be6ca0cca5f52680a58755d1b4c304f49c62537c3276cac80baa",
+        "matches": true
+      },
+      {
+        "name": "apply_auto_tip_and_reverse",
+        "source_start_line": 188,
+        "source_end_line": 234,
+        "recorded_sha256": "57c0c80c75d543a875edbc43fc4314083ef151f76b300e9787530c6875e6f68a",
+        "actual_sha256": "57c0c80c75d543a875edbc43fc4314083ef151f76b300e9787530c6875e6f68a",
+        "matches": true
+      },
+      {
+        "name": "_status_apply",
+        "source_start_line": 237,
+        "source_end_line": 239,
+        "recorded_sha256": "7e2a5c8c275fceaad86586a7741080290d139954875c603d1dba6c9e79fc1fa9",
+        "actual_sha256": "7e2a5c8c275fceaad86586a7741080290d139954875c603d1dba6c9e79fc1fa9",
+        "matches": true
+      },
+      {
+        "name": "bending_result_evidence",
+        "source_start_line": 242,
+        "source_end_line": 287,
+        "recorded_sha256": "51333e329f2517726916f95e3a677326039b7e7d469e781970e5b5c049f1776e",
+        "actual_sha256": "51333e329f2517726916f95e3a677326039b7e7d469e781970e5b5c049f1776e",
+        "matches": true
+      },
+      {
+        "name": "_bending_state",
+        "source_start_line": 290,
+        "source_end_line": 298,
+        "recorded_sha256": "806d8f0233c8aacd06f0bfb69a1643ddc10827a22cfa3d59cd079676651c4008",
+        "actual_sha256": "806d8f0233c8aacd06f0bfb69a1643ddc10827a22cfa3d59cd079676651c4008",
+        "matches": true
+      },
+      {
+        "name": "apply_bending_check",
+        "source_start_line": 301,
+        "source_end_line": 365,
+        "recorded_sha256": "fc561cacdcda87501ef8af27ac8633d6a14c37c4712bcfcfb105fce43762867e",
+        "actual_sha256": "fc561cacdcda87501ef8af27ac8633d6a14c37c4712bcfcfb105fce43762867e",
+        "matches": true
+      },
+      {
+        "name": "material_matches",
+        "source_start_line": 368,
+        "source_end_line": 378,
+        "recorded_sha256": "7bace131719ce0dc82aa3a20a44ce1bc9c0e5016e954f41626827567d56e929d",
+        "actual_sha256": "7bace131719ce0dc82aa3a20a44ce1bc9c0e5016e954f41626827567d56e929d",
+        "matches": true
+      },
+      {
+        "name": "_disclaimer",
+        "source_start_line": 381,
+        "source_end_line": 391,
+        "recorded_sha256": "9fb4e160b53feca6bf03dec3c997f2a54a1bbd042b6b7379bb887cbf2b53b0c1",
+        "actual_sha256": "9fb4e160b53feca6bf03dec3c997f2a54a1bbd042b6b7379bb887cbf2b53b0c1",
+        "matches": true
+      },
+      {
+        "name": "_material_window_status",
+        "source_start_line": 394,
+        "source_end_line": 416,
+        "recorded_sha256": "9e83e04c9c261475b7bcf74d7f63753f83ed95de65b1e03b159da3d9bd0745c0",
+        "actual_sha256": "9e83e04c9c261475b7bcf74d7f63753f83ed95de65b1e03b159da3d9bd0745c0",
+        "matches": true
+      },
+      {
+        "name": "apply_material",
+        "source_start_line": 419,
+        "source_end_line": 524,
+        "recorded_sha256": "306e1d26916bae6a816d261ef2bf181bdd006557a2fcb2bb6c044cf59f8fa7f9",
+        "actual_sha256": "306e1d26916bae6a816d261ef2bf181bdd006557a2fcb2bb6c044cf59f8fa7f9",
+        "matches": true
+      }
+    ]
+  },
+  "final_validation": {
+    "status": "verified_specified_three_run_scenario",
+    "evidence": "runs/business-acceptance-20261029/chain.json",
+    "summary": "docs/evidence/business-acceptance-2026-10-29.json",
+    "version_fingerprint": "fbe75190f0f9e18be07001cce742a9aaab1b29ec574e359638f831c1c8d1afcf",
+    "unit_tests_passed": 144,
+    "independent_audit_checks": 3872,
+    "scope": "Specified baogu/S355MC/4 mm; 26 stages per run, GUI and native solver, same-file persistence, both closes, owned zero. No full-field or tolerance acceptance."
+  }
+}

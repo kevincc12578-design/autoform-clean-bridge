@@ -85,6 +85,9 @@ def foreground(hwnd, pid):
         raise RuntimeError('Window PID changed')
     if u.IsIconic(hwnd):
         u.ShowWindow(hwnd, 9)
+        # DWM can report the final rectangle before restore animation ends.
+        # Recheck foreground/hit guards only after that visual transition.
+        time.sleep(.4)
     if u.GetForegroundWindow()!=hwnd:
         u.SetForegroundWindow(hwnd)
     deadline=time.monotonic()+2
@@ -106,3 +109,19 @@ def guard_point(hwnd, pid, rect):
     if window_pid(hit)!=pid or u.GetAncestor(hit,2)!=hwnd:
         raise RuntimeError('Hit window guard failed')
     return x,y
+
+
+def click_point(x,y,wait=.15):
+    """Let Qt process pointer movement before the down/up gesture."""
+    u.SetCursorPos.argtypes=[c.c_int,c.c_int]
+    u.SetCursorPos.restype=w.BOOL
+    u.mouse_event.argtypes=[w.DWORD,w.DWORD,w.DWORD,w.DWORD,c.c_void_p]
+    if not u.SetCursorPos(int(x),int(y)):
+        raise OSError('SetCursorPos failed')
+    time.sleep(.15)
+    u.mouse_event(2,0,0,0,None)
+    try:
+        time.sleep(.05)
+    finally:
+        u.mouse_event(4,0,0,0,None)
+    time.sleep(wait)

@@ -1,0 +1,847 @@
+[
+  {
+    "kind": "mouse_down",
+    "button": "left",
+    "perf_ns": 358949667746500,
+    "x": 232,
+    "y": 357,
+    "modifiers": [],
+    "injected": true,
+    "os_time_ms": 358949515,
+    "event_window": {
+      "hwnd": 1576478,
+      "pid": 15292,
+      "title": "AutoForm Forming R13 - Untitled_1 汇才伴您一起进步-(我们可以模具设计-模具制作-零部件生产)",
+      "class_name": "Qt5QWindowIcon",
+      "rect": [
+        -8,
+        -8,
+        1928,
+        1048
+      ],
+      "root_hwnd": 1576478,
+      "root_pid": 15292,
+      "owner_hwnd": 0,
+      "owner_chain": [],
+      "hit_hwnd": 1249432
+    },
+    "foreground": {
+      "hwnd": 1576478,
+      "pid": 15292,
+      "title": "AutoForm Forming R13 - Untitled_1 汇才伴您一起进步-(我们可以模具设计-模具制作-零部件生产)",
+      "class_name": "Qt5QWindowIcon",
+      "rect": [
+        -8,
+        -8,
+        1928,
+        1048
+      ],
+      "root_hwnd": 1576478,
+      "root_pid": 15292,
+      "owner_hwnd": 0,
+      "owner_chain": []
+    },
+    "event_id": 61,
+    "elapsed_s": 56.841986,
+    "target_before": {
+      "observed_perf_ns": 358949528723600,
+      "completed_perf_ns": 358949536888900,
+      "point": [
+        232,
+        357
+      ],
+      "ok": true,
+      "control": {
+        "type": "GroupControl",
+        "name": "",
+        "class_name": "AutoForm::OperationIcon",
+        "automation_id": "",
+        "rect": [
+          211,
+          332,
+          246,
+          377
+        ],
+        "pid": 15292,
+        "password": false,
+        "offscreen": false
+      },
+      "parents": [
+        {
+          "type": "GroupControl",
+          "name": "",
+          "class_name": "AutoForm::ProductionLineLibraryView",
+          "automation_id": "",
+          "rect": [
+            0,
+            305,
+            450,
+            573
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        },
+        {
+          "type": "GroupControl",
+          "name": "",
+          "class_name": "AutoForm::ProductionLinePressDetailsView",
+          "automation_id": "",
+          "rect": [
+            0,
+            305,
+            450,
+            976
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        },
+        {
+          "type": "CustomControl",
+          "name": "",
+          "class_name": "AFStackedWidget",
+          "automation_id": "",
+          "rect": [
+            0,
+            305,
+            450,
+            976
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        },
+        {
+          "type": "GroupControl",
+          "name": "",
+          "class_name": "QWidget",
+          "automation_id": "",
+          "rect": [
+            0,
+            305,
+            450,
+            976
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        }
+      ],
+      "error": null,
+      "window": {
+        "hwnd": 1576478,
+        "pid": 15292,
+        "title": "AutoForm Forming R13 - Untitled_1 汇才伴您一起进步-(我们可以模具设计-模具制作-零部件生产)",
+        "class_name": "Qt5QWindowIcon",
+        "rect": [
+          -8,
+          -8,
+          1928,
+          1048
+        ],
+        "root_hwnd": 1576478,
+        "root_pid": 15292,
+        "owner_hwnd": 0,
+        "owner_chain": [],
+        "hit_hwnd": 1249432
+      },
+      "age_ms": 130.858,
+      "pointer_distance_px": 0.0,
+      "usable": true
+    },
+    "screenshots": {
+      "before": {
+        "path": "screenshots/000061-before.jpg",
+        "captured_perf_ns": 358949575536200,
+        "completed_perf_ns": 358949605262200,
+        "age_ms": 62.484
+      },
+      "after": {
+        "event_id": 61,
+        "path": "screenshots/000061-after.jpg",
+        "captured_perf_ns": 358950150242400,
+        "completed_perf_ns": 358950182600300,
+        "delay_ms": 482.496
+      }
+    },
+    "step": 60,
+    "video_seconds": 56.78254
+  },
+  {
+    "kind": "mouse_up",
+    "button": "left",
+    "perf_ns": 358951103536500,
+    "x": 68,
+    "y": 152,
+    "modifiers": [],
+    "injected": true,
+    "os_time_ms": 358950937,
+    "event_window": {
+      "hwnd": 1576478,
+      "pid": 15292,
+      "title": "AutoForm Forming R13 - Untitled_1 汇才伴您一起进步-(我们可以模具设计-模具制作-零部件生产)",
+      "class_name": "Qt5QWindowIcon",
+      "rect": [
+        -8,
+        -8,
+        1928,
+        1048
+      ],
+      "root_hwnd": 1576478,
+      "root_pid": 15292,
+      "owner_hwnd": 0,
+      "owner_chain": [],
+      "hit_hwnd": 19074824
+    },
+    "foreground": {
+      "hwnd": 1576478,
+      "pid": 15292,
+      "title": "AutoForm Forming R13 - Untitled_1 汇才伴您一起进步-(我们可以模具设计-模具制作-零部件生产)",
+      "class_name": "Qt5QWindowIcon",
+      "rect": [
+        -8,
+        -8,
+        1928,
+        1048
+      ],
+      "root_hwnd": 1576478,
+      "root_pid": 15292,
+      "owner_hwnd": 0,
+      "owner_chain": []
+    },
+    "event_id": 86,
+    "elapsed_s": 58.277776,
+    "target_before": {
+      "observed_perf_ns": 358951080597300,
+      "completed_perf_ns": 358951088490000,
+      "point": [
+        68,
+        152
+      ],
+      "ok": true,
+      "control": {
+        "type": "GroupControl",
+        "name": "",
+        "class_name": "QWidget",
+        "automation_id": "",
+        "rect": [
+          0,
+          111,
+          440,
+          227
+        ],
+        "pid": 15292,
+        "password": false,
+        "offscreen": false
+      },
+      "parents": [
+        {
+          "type": "GroupControl",
+          "name": "",
+          "class_name": "QWidget",
+          "automation_id": "",
+          "rect": [
+            0,
+            111,
+            440,
+            227
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        },
+        {
+          "type": "GroupControl",
+          "name": "",
+          "class_name": "QScrollArea",
+          "automation_id": "",
+          "rect": [
+            0,
+            111,
+            440,
+            241
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        },
+        {
+          "type": "GroupControl",
+          "name": "",
+          "class_name": "QWidget",
+          "automation_id": "",
+          "rect": [
+            0,
+            111,
+            440,
+            241
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        },
+        {
+          "type": "GroupControl",
+          "name": "",
+          "class_name": "AutoForm::ProductionLineDnDBayView",
+          "automation_id": "",
+          "rect": [
+            0,
+            111,
+            440,
+            241
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        }
+      ],
+      "error": null,
+      "window": {
+        "hwnd": 1576478,
+        "pid": 15292,
+        "title": "AutoForm Forming R13 - Untitled_1 汇才伴您一起进步-(我们可以模具设计-模具制作-零部件生产)",
+        "class_name": "Qt5QWindowIcon",
+        "rect": [
+          -8,
+          -8,
+          1928,
+          1048
+        ],
+        "root_hwnd": 1576478,
+        "root_pid": 15292,
+        "owner_hwnd": 0,
+        "owner_chain": [],
+        "hit_hwnd": 19074824
+      },
+      "age_ms": 15.046,
+      "pointer_distance_px": 0.0,
+      "usable": true
+    },
+    "screenshots": {
+      "before": {
+        "path": "screenshots/000086-before.jpg",
+        "captured_perf_ns": 358951018796500,
+        "completed_perf_ns": 358951051891400,
+        "age_ms": 51.645
+      },
+      "after": {
+        "event_id": 86,
+        "path": "screenshots/000086-after.jpg",
+        "captured_perf_ns": 358951596757900,
+        "completed_perf_ns": 358951626102300,
+        "delay_ms": 493.221
+      }
+    },
+    "step": 61,
+    "video_seconds": 58.21833
+  },
+  {
+    "kind": "mouse_down",
+    "button": "left",
+    "perf_ns": 358966063005700,
+    "x": 276,
+    "y": 556,
+    "modifiers": [],
+    "injected": true,
+    "os_time_ms": 358965906,
+    "event_window": {
+      "hwnd": 1576478,
+      "pid": 15292,
+      "title": "AutoForm Forming R13 - Untitled_1 汇才伴您一起进步-(我们可以模具设计-模具制作-零部件生产)",
+      "class_name": "Qt5QWindowIcon",
+      "rect": [
+        -8,
+        -8,
+        1928,
+        1048
+      ],
+      "root_hwnd": 1576478,
+      "root_pid": 15292,
+      "owner_hwnd": 0,
+      "owner_chain": [],
+      "hit_hwnd": 8326958
+    },
+    "foreground": {
+      "hwnd": 1576478,
+      "pid": 15292,
+      "title": "AutoForm Forming R13 - Untitled_1 汇才伴您一起进步-(我们可以模具设计-模具制作-零部件生产)",
+      "class_name": "Qt5QWindowIcon",
+      "rect": [
+        -8,
+        -8,
+        1928,
+        1048
+      ],
+      "root_hwnd": 1576478,
+      "root_pid": 15292,
+      "owner_hwnd": 0,
+      "owner_chain": []
+    },
+    "event_id": 101,
+    "elapsed_s": 73.237245,
+    "target_before": {
+      "observed_perf_ns": 358965957550600,
+      "completed_perf_ns": 358965971289900,
+      "point": [
+        276,
+        556
+      ],
+      "ok": true,
+      "control": {
+        "type": "ButtonControl",
+        "name": "矩形...",
+        "class_name": "AFCurveInputControl",
+        "automation_id": "",
+        "rect": [
+          168,
+          547,
+          283,
+          568
+        ],
+        "pid": 15292,
+        "password": false,
+        "offscreen": false
+      },
+      "parents": [
+        {
+          "type": "CustomControl",
+          "name": "",
+          "class_name": "QFrame",
+          "automation_id": "",
+          "rect": [
+            0,
+            520,
+            450,
+            628
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        },
+        {
+          "type": "CustomControl",
+          "name": "",
+          "class_name": "AFProgressiveDisclosure",
+          "automation_id": "",
+          "rect": [
+            0,
+            496,
+            450,
+            631
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        },
+        {
+          "type": "GroupControl",
+          "name": "",
+          "class_name": "QWidget",
+          "automation_id": "",
+          "rect": [
+            0,
+            111,
+            450,
+            1005
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        },
+        {
+          "type": "GroupControl",
+          "name": "",
+          "class_name": "QWidget",
+          "automation_id": "",
+          "rect": [
+            0,
+            111,
+            450,
+            1005
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        }
+      ],
+      "error": null,
+      "window": {
+        "hwnd": 1576478,
+        "pid": 15292,
+        "title": "AutoForm Forming R13 - Untitled_1 汇才伴您一起进步-(我们可以模具设计-模具制作-零部件生产)",
+        "class_name": "Qt5QWindowIcon",
+        "rect": [
+          -8,
+          -8,
+          1928,
+          1048
+        ],
+        "root_hwnd": 1576478,
+        "root_pid": 15292,
+        "owner_hwnd": 0,
+        "owner_chain": [],
+        "hit_hwnd": 8326958
+      },
+      "age_ms": 91.716,
+      "pointer_distance_px": 0.0,
+      "usable": true
+    },
+    "screenshots": {
+      "before": {
+        "path": "screenshots/000101-before.jpg",
+        "captured_perf_ns": 358965832782800,
+        "completed_perf_ns": 358965863527700,
+        "age_ms": 199.478
+      },
+      "after": {
+        "event_id": 101,
+        "path": "screenshots/000101-after.jpg",
+        "captured_perf_ns": 358966409222400,
+        "completed_perf_ns": 358966438361500,
+        "delay_ms": 346.217
+      }
+    },
+    "step": 76,
+    "video_seconds": 73.177799
+  },
+  {
+    "kind": "mouse_down",
+    "button": "left",
+    "perf_ns": 358973709067000,
+    "x": 29,
+    "y": 97,
+    "modifiers": [],
+    "injected": true,
+    "os_time_ms": 358973546,
+    "event_window": {
+      "hwnd": 1576478,
+      "pid": 15292,
+      "title": "AutoForm Forming R13 - Untitled_1 汇才伴您一起进步-(我们可以模具设计-模具制作-零部件生产)",
+      "class_name": "Qt5QWindowIcon",
+      "rect": [
+        -8,
+        -8,
+        1928,
+        1048
+      ],
+      "root_hwnd": 1576478,
+      "root_pid": 15292,
+      "owner_hwnd": 0,
+      "owner_chain": [],
+      "hit_hwnd": 790558
+    },
+    "foreground": {
+      "hwnd": 1576478,
+      "pid": 15292,
+      "title": "AutoForm Forming R13 - Untitled_1 汇才伴您一起进步-(我们可以模具设计-模具制作-零部件生产)",
+      "class_name": "Qt5QWindowIcon",
+      "rect": [
+        -8,
+        -8,
+        1928,
+        1048
+      ],
+      "root_hwnd": 1576478,
+      "root_pid": 15292,
+      "owner_hwnd": 0,
+      "owner_chain": []
+    },
+    "event_id": 109,
+    "elapsed_s": 80.883306,
+    "target_before": {
+      "observed_perf_ns": 358973573642700,
+      "completed_perf_ns": 358973583688600,
+      "point": [
+        29,
+        97
+      ],
+      "ok": true,
+      "control": {
+        "type": "GroupControl",
+        "name": "",
+        "class_name": "AFAnimatedOPTabBar",
+        "automation_id": "",
+        "rect": [
+          0,
+          80,
+          450,
+          103
+        ],
+        "pid": 15292,
+        "password": false,
+        "offscreen": false
+      },
+      "parents": [
+        {
+          "type": "GroupControl",
+          "name": "",
+          "class_name": "QWidget",
+          "automation_id": "",
+          "rect": [
+            0,
+            80,
+            450,
+            1005
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        },
+        {
+          "type": "GroupControl",
+          "name": "",
+          "class_name": "AutoForm::ProcessPageView",
+          "automation_id": "",
+          "rect": [
+            0,
+            80,
+            450,
+            1005
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        },
+        {
+          "type": "CustomControl",
+          "name": "",
+          "class_name": "QStackedWidget",
+          "automation_id": "",
+          "rect": [
+            0,
+            80,
+            450,
+            1005
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        },
+        {
+          "type": "CustomControl",
+          "name": "",
+          "class_name": "QFrame",
+          "automation_id": "",
+          "rect": [
+            0,
+            43,
+            450,
+            1005
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        }
+      ],
+      "error": null,
+      "window": {
+        "hwnd": 1576478,
+        "pid": 15292,
+        "title": "AutoForm Forming R13 - Untitled_1 汇才伴您一起进步-(我们可以模具设计-模具制作-零部件生产)",
+        "class_name": "Qt5QWindowIcon",
+        "rect": [
+          -8,
+          -8,
+          1928,
+          1048
+        ],
+        "root_hwnd": 1576478,
+        "root_pid": 15292,
+        "owner_hwnd": 0,
+        "owner_chain": [],
+        "hit_hwnd": 790558
+      },
+      "age_ms": 125.378,
+      "pointer_distance_px": 0.0,
+      "usable": true
+    },
+    "screenshots": {
+      "before": {
+        "path": "screenshots/000109-before.jpg",
+        "captured_perf_ns": 358973434693400,
+        "completed_perf_ns": 358973466392800,
+        "age_ms": 242.674
+      },
+      "after": {
+        "event_id": 109,
+        "path": "screenshots/000109-after.jpg",
+        "captured_perf_ns": 358974303047300,
+        "completed_perf_ns": 358974334197300,
+        "delay_ms": 593.98
+      }
+    },
+    "step": 84,
+    "video_seconds": 80.82386
+  },
+  {
+    "kind": "mouse_down",
+    "button": "left",
+    "perf_ns": 358979935718900,
+    "x": 75,
+    "y": 97,
+    "modifiers": [],
+    "injected": true,
+    "os_time_ms": 358979781,
+    "event_window": {
+      "hwnd": 1576478,
+      "pid": 15292,
+      "title": "AutoForm Forming R13 - Untitled_1 汇才伴您一起进步-(我们可以模具设计-模具制作-零部件生产)",
+      "class_name": "Qt5QWindowIcon",
+      "rect": [
+        -8,
+        -8,
+        1928,
+        1048
+      ],
+      "root_hwnd": 1576478,
+      "root_pid": 15292,
+      "owner_hwnd": 0,
+      "owner_chain": [],
+      "hit_hwnd": 790558
+    },
+    "foreground": {
+      "hwnd": 1576478,
+      "pid": 15292,
+      "title": "AutoForm Forming R13 - Untitled_1 汇才伴您一起进步-(我们可以模具设计-模具制作-零部件生产)",
+      "class_name": "Qt5QWindowIcon",
+      "rect": [
+        -8,
+        -8,
+        1928,
+        1048
+      ],
+      "root_hwnd": 1576478,
+      "root_pid": 15292,
+      "owner_hwnd": 0,
+      "owner_chain": []
+    },
+    "event_id": 115,
+    "elapsed_s": 87.109958,
+    "target_before": {
+      "observed_perf_ns": 358979861020900,
+      "completed_perf_ns": 358979873463400,
+      "point": [
+        75,
+        98
+      ],
+      "ok": true,
+      "control": {
+        "type": "GroupControl",
+        "name": "",
+        "class_name": "AFAnimatedOPTabBar",
+        "automation_id": "",
+        "rect": [
+          0,
+          80,
+          450,
+          103
+        ],
+        "pid": 15292,
+        "password": false,
+        "offscreen": false
+      },
+      "parents": [
+        {
+          "type": "GroupControl",
+          "name": "",
+          "class_name": "QWidget",
+          "automation_id": "",
+          "rect": [
+            0,
+            80,
+            450,
+            1005
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        },
+        {
+          "type": "GroupControl",
+          "name": "",
+          "class_name": "AutoForm::ProcessPageView",
+          "automation_id": "",
+          "rect": [
+            0,
+            80,
+            450,
+            1005
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        },
+        {
+          "type": "CustomControl",
+          "name": "",
+          "class_name": "QStackedWidget",
+          "automation_id": "",
+          "rect": [
+            0,
+            80,
+            450,
+            1005
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        },
+        {
+          "type": "CustomControl",
+          "name": "",
+          "class_name": "QFrame",
+          "automation_id": "",
+          "rect": [
+            0,
+            43,
+            450,
+            1005
+          ],
+          "pid": 15292,
+          "password": false,
+          "offscreen": false
+        }
+      ],
+      "error": null,
+      "window": {
+        "hwnd": 1576478,
+        "pid": 15292,
+        "title": "AutoForm Forming R13 - Untitled_1 汇才伴您一起进步-(我们可以模具设计-模具制作-零部件生产)",
+        "class_name": "Qt5QWindowIcon",
+        "rect": [
+          -8,
+          -8,
+          1928,
+          1048
+        ],
+        "root_hwnd": 1576478,
+        "root_pid": 15292,
+        "owner_hwnd": 0,
+        "owner_chain": [],
+        "hit_hwnd": 790558
+      },
+      "age_ms": 62.255,
+      "pointer_distance_px": 1.0,
+      "usable": true
+    },
+    "screenshots": {
+      "before": {
+        "path": "screenshots/000115-before.jpg",
+        "captured_perf_ns": 358979835728900,
+        "completed_perf_ns": 358979869141500,
+        "age_ms": 66.577
+      },
+      "after": {
+        "event_id": 115,
+        "path": "screenshots/000115-after.jpg",
+        "captured_perf_ns": 358980427297600,
+        "completed_perf_ns": 358980456785600,
+        "delay_ms": 491.579
+      }
+    },
+    "step": 90,
+    "video_seconds": 87.050512
+  }
+]

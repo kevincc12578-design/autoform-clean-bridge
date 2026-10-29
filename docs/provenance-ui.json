@@ -1,0 +1,167 @@
+{
+  "authorization": "User allows selected verified business code; no whole legacy dependency package",
+  "stage_events": [
+    57,
+    93,
+    97,
+    107,
+    140
+  ],
+  "new_validation": {
+    "status": "verified_specified_three_run_scenario",
+    "evidence": "runs/business-acceptance-20261029/chain.json",
+    "summary": "docs/evidence/business-acceptance-2026-10-29.json",
+    "version_fingerprint": "fbe75190f0f9e18be07001cce742a9aaab1b29ec574e359638f831c1c8d1afcf",
+    "unit_tests_passed": 144,
+    "independent_audit_checks": 3872,
+    "scope": "Specified baogu/S355MC/4 mm; 26 stages per run, GUI and native solver, same-file persistence, both closes, owned zero. No full-field or tolerance acceptance."
+  },
+  "implementation": "New operations/ui.py uses the existing adapters/native.py guards and Supervisor worker; selected page names/calibration and scoped-control method adapted from reference. No legacy imports, session inheritance or old process execution.",
+  "references": [
+    {
+      "sha256": "9cfda54c37d22e5aaa57f24444b858a58e97b1f3d9ad5bf20c2462802ed32eb9",
+      "path": "D:/ai库/autoform自动化/af_workflow/common.py"
+    },
+    {
+      "sha256": "4e3a9914f76329b62dc96092e2cd0fdb86c2ae0e4b53900a705113e54407fc7e",
+      "path": "D:/ai库/autoform自动化/af_workflow/runtime.py"
+    },
+    {
+      "sha256": "10e9718d2ef6308c381c3042bfbbd1b3eb07db39c8b7b3418cff4fd81c61dab9",
+      "path": "D:/ai库/autoform自动化/af_workflow/_reuse/autoform_bridge/pages.py"
+    },
+    {
+      "sha256": "98c1339bb8a1c107299a8251c510eb9d057aef1a47e5966fac121107507298c2",
+      "path": "D:/ai库/autoform自动化/af_workflow/_reuse/autoform_bridge/activities.py"
+    },
+    {
+      "sha256": "b1c160e44c52c965550ceadf5d7cf8e12ca68bfb974adf5f5b4d8b3f1467a141",
+      "path": "D:/ai库/autoform自动化/录制结果/session-20261028-114837-d70207e2/steps.json"
+    }
+  ],
+  "date": "2026-10-29",
+  "final_artifacts_recorded_date": "2026-10-29",
+  "final_artifact_scope": "Current source/calibration snapshot before final three-run acceptance; hashes do not establish live validation.",
+  "final_artifacts": [
+    {
+      "path": "src/af_r13_bridge/operations/ui.py",
+      "sha256": "4b04048fdfc96e115c4c0c00d3e2c48bfc0c7deca310b5a25a67b4f06a86651d",
+      "size_bytes": 15185,
+      "role": "new_minimal_business_ui_adapter"
+    },
+    {
+      "path": "src/af_r13_bridge/operations/dispatch.py",
+      "sha256": "1063d5f2d31a87cc874cbdf6f1114b884fc5e82eca2dbf009da2a684d8a561aa",
+      "size_bytes": 2687,
+      "role": "new_allowlisted_business_worker_dispatch"
+    },
+    {
+      "path": "src/af_r13_bridge/operations/__init__.py",
+      "sha256": "c8479e47e82e852f823ff38fb26b02f02c42934f320b19796722c6ef6a9dce11",
+      "size_bytes": 222,
+      "role": "new_business_package"
+    },
+    {
+      "path": "src/af_r13_bridge/operations/calibration/stages.json",
+      "sha256": "b6301a4c5e91589c0997d20e2ee332aa8ee232c2773a365b55b4e2adbfa43308",
+      "size_bytes": 756,
+      "role": "selected_stage_calibration_data"
+    },
+    {
+      "path": "src/af_r13_bridge/adapters/native.py",
+      "sha256": "311388591a579a84460a56186be68ff826c3dbe31a9a41c3406cb3001510d192",
+      "size_bytes": 4778,
+      "role": "existing_native_boundary_business_extensions"
+    },
+    {
+      "path": "src/af_r13_bridge/adapters/uia_worker.py",
+      "sha256": "2edd24e186c378cd62edd34cb7dbc0a7c90c724446b96ea2529f3e48fc6a8b02",
+      "size_bytes": 7765,
+      "role": "existing_supervised_worker_business_dispatch"
+    },
+    {
+      "path": "src/af_r13_bridge/adapters/windows.py",
+      "sha256": "2bfcde39a83aed87a85d377fd44a211892629220bcb804f40c8d28ab1e913a76",
+      "size_bytes": 19393,
+      "role": "existing_owned_document_adapter_business_integration"
+    },
+    {
+      "path": "src/af_r13_bridge/lifecycle.py",
+      "sha256": "51386fce3055384e08b07b9b904356c31538b299c1c68b23b433e2dee3dde1de",
+      "size_bytes": 26286,
+      "role": "existing_ownership_and_same_file_lifecycle_business_save_registration"
+    },
+    {
+      "path": "src/af_r13_bridge/api.py",
+      "sha256": "5968c88031e2832e7f95188d14bf42970bc1fb837ba900a0281531a600a83dd6",
+      "size_bytes": 16347,
+      "role": "existing_public_bridge_business_dispatch"
+    },
+    {
+      "path": "src/af_r13_bridge/workflow.py",
+      "sha256": "0891d512e0a2799311db5ac1b06e9162f4218a5b0b2b0a2d275ae14bc30064b2",
+      "size_bytes": 10579,
+      "role": "new_public_api_only_baogu_workflow"
+    },
+    {
+      "path": "src/af_r13_bridge/__main__.py",
+      "sha256": "f76c9f3866ba4d0d3a6046c7ee9262b6a5f641c37caa3d09a161eaa47a23eac6",
+      "size_bytes": 11508,
+      "role": "existing_json_cli_business_chain_entry"
+    },
+    {
+      "path": "src/af_r13_bridge/__init__.py",
+      "sha256": "77679b924c910c07acfa1781aaecdbee9fbfea049f56502e9e0eca22f03e9bd9",
+      "size_bytes": 105,
+      "role": "package_public_version"
+    }
+  ],
+  "source_hash_verification": {
+    "checked_on": "2026-10-29",
+    "method": "read-only SHA256 of original source/evidence files; selected function hashes use UTF-8 ast.get_source_segment",
+    "ok": true,
+    "file_records_checked": 5,
+    "function_spans_checked": 0,
+    "files": [
+      {
+        "path": "D:/ai库/autoform自动化/af_workflow/common.py",
+        "recorded_sha256": "9cfda54c37d22e5aaa57f24444b858a58e97b1f3d9ad5bf20c2462802ed32eb9",
+        "actual_sha256": "9cfda54c37d22e5aaa57f24444b858a58e97b1f3d9ad5bf20c2462802ed32eb9",
+        "matches": true
+      },
+      {
+        "path": "D:/ai库/autoform自动化/af_workflow/runtime.py",
+        "recorded_sha256": "4e3a9914f76329b62dc96092e2cd0fdb86c2ae0e4b53900a705113e54407fc7e",
+        "actual_sha256": "4e3a9914f76329b62dc96092e2cd0fdb86c2ae0e4b53900a705113e54407fc7e",
+        "matches": true
+      },
+      {
+        "path": "D:/ai库/autoform自动化/af_workflow/_reuse/autoform_bridge/pages.py",
+        "recorded_sha256": "10e9718d2ef6308c381c3042bfbbd1b3eb07db39c8b7b3418cff4fd81c61dab9",
+        "actual_sha256": "10e9718d2ef6308c381c3042bfbbd1b3eb07db39c8b7b3418cff4fd81c61dab9",
+        "matches": true
+      },
+      {
+        "path": "D:/ai库/autoform自动化/af_workflow/_reuse/autoform_bridge/activities.py",
+        "recorded_sha256": "98c1339bb8a1c107299a8251c510eb9d057aef1a47e5966fac121107507298c2",
+        "actual_sha256": "98c1339bb8a1c107299a8251c510eb9d057aef1a47e5966fac121107507298c2",
+        "matches": true
+      },
+      {
+        "path": "D:/ai库/autoform自动化/录制结果/session-20261028-114837-d70207e2/steps.json",
+        "recorded_sha256": "b1c160e44c52c965550ceadf5d7cf8e12ca68bfb974adf5f5b4d8b3f1467a141",
+        "actual_sha256": "b1c160e44c52c965550ceadf5d7cf8e12ca68bfb974adf5f5b4d8b3f1467a141",
+        "matches": true
+      }
+    ]
+  },
+  "final_validation": {
+    "status": "verified_specified_three_run_scenario",
+    "evidence": "runs/business-acceptance-20261029/chain.json",
+    "summary": "docs/evidence/business-acceptance-2026-10-29.json",
+    "version_fingerprint": "fbe75190f0f9e18be07001cce742a9aaab1b29ec574e359638f831c1c8d1afcf",
+    "unit_tests_passed": 144,
+    "independent_audit_checks": 3872,
+    "scope": "Specified baogu/S355MC/4 mm; 26 stages per run, GUI and native solver, same-file persistence, both closes, owned zero. No full-field or tolerance acceptance."
+  }
+}

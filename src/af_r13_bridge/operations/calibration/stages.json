@@ -1,0 +1,44 @@
+{
+  "part": {
+    "relative": [
+      0.048879837067209775,
+      0.5
+    ],
+    "source": "part icon at first taskbar position; checked by PartSetupPageView"
+  },
+  "die_face": {
+    "event_id": 93,
+    "relative": [
+      0.3638676844783715,
+      0.4666666666666667
+    ]
+  },
+  "process": {
+    "event_id": 107,
+    "relative": [
+      0.6564885496183206,
+      0.4666666666666667
+    ]
+  },
+  "blank": {
+    "event_id": 97,
+    "relative": [
+      0.5038167938931297,
+      0.36666666666666664
+    ]
+  },
+  "plan": {
+    "event_id": 57,
+    "relative": [
+      0.2035623409669211,
+      0.4
+    ]
+  },
+  "simulation": {
+    "event_id": 140,
+    "relative": [
+      0.7633587786259542,
+      0.5
+    ]
+  }
+}

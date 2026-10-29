@@ -1,0 +1,113 @@
+{
+  "recording_session": "session-20261028-114837-d70207e2",
+  "event_id": 119,
+  "video_seconds": 90.0738,
+  "recorded_tree_rect": [
+    0,
+    381,
+    130,
+    524
+  ],
+  "recorded_header_rect_inferred_from_current_uia_translation": [
+    0,
+    382,
+    129,
+    405
+  ],
+  "recorded_row_height": 20,
+  "current_uia_evidence": "runs/latest-current-tail-validation-01/tool-pattern-read.json",
+  "states": {
+    "hidden": {
+      "source": "录制结果/session-20261028-114837-d70207e2/screenshots/000119-before.jpg",
+      "source_sha256": "0b32d69ef121dc2c290ec1870701e01203cb6eb96684375f9e0e5073948b3da5",
+      "asset": "recorded-tool-eyes-hidden.png",
+      "asset_sha256": "bc66e200f09ac56ecc31660f6ba0c47f105d6b5b14a54988ec111d8fcc58e180"
+    },
+    "visible": {
+      "source": "录制结果/session-20261028-114837-d70207e2/screenshots/000119-after.jpg",
+      "source_sha256": "032fd24a4c9a38b7c9f72bd91497f50c4e266f5d2ec8d3604c80cdb85eea0a10",
+      "asset": "recorded-tool-eyes-visible.png",
+      "asset_sha256": "d7d5569a62878788859c8767871469f630ce2fbf18fd41e752aa2af6bd338e0d"
+    }
+  },
+  "roles": [
+    {
+      "role": "header",
+      "source_box": [
+        111,
+        385,
+        126,
+        400
+      ],
+      "tile_box": [
+        0,
+        0,
+        15,
+        15
+      ]
+    },
+    {
+      "role": "slide",
+      "source_box": [
+        111,
+        407,
+        126,
+        422
+      ],
+      "tile_box": [
+        0,
+        15,
+        15,
+        30
+      ]
+    },
+    {
+      "role": "convex",
+      "source_box": [
+        111,
+        427,
+        126,
+        442
+      ],
+      "tile_box": [
+        0,
+        30,
+        15,
+        45
+      ]
+    },
+    {
+      "role": "bed",
+      "source_box": [
+        111,
+        447,
+        126,
+        462
+      ],
+      "tile_box": [
+        0,
+        45,
+        15,
+        60
+      ]
+    },
+    {
+      "role": "concave",
+      "source_box": [
+        111,
+        467,
+        126,
+        482
+      ],
+      "tile_box": [
+        0,
+        60,
+        15,
+        75
+      ]
+    }
+  ],
+  "transformation": "Exact 15x15 RGB crops tiled vertically. No interpolation, recoloring or pointer removal.",
+  "scope": "Eye display icons only. Not tool enablement, geometry or persistence.",
+  "mouse_highlight_used": false
+}

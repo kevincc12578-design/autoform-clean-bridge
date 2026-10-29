@@ -69,6 +69,17 @@ def _parser() -> Parser:
     commands.add_parser("capabilities", help="Implementation status; no UI access")
     discovery = commands.add_parser("discover", help="Read-only R13 process/window discovery")
     discovery.add_argument("--out")
+    chain=commands.add_parser('chain',help='Owned baogu business workflow including same-file persistence and final close')
+    chain.add_argument('--workflow',choices=['baogu'],default='baogu')
+    chain.add_argument('--runs',type=int,default=3)
+    chain.add_argument('--out',required=True)
+    chain.add_argument('--part')
+    chain.add_argument('--material')
+    chain.add_argument('--until',help='Development only, single run; never full acceptance')
+    chain.add_argument('--live',action='store_true')
+    chain.add_argument('--launch',action='store_true')
+    chain.add_argument('--license-server')
+    chain.add_argument('--allow-selected-license',action='store_true')
     for name in ("lifecycle", "batch", "call"):
         entry = commands.add_parser(name)
         if name == "call":
@@ -100,6 +111,16 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "capabilities":
             result = Result(True, "capabilities", uuid.uuid4().hex, data=capabilities(),
                             verification_scope="Implementation declarations; no UI access.").to_dict()
+        elif args.command=='chain':
+            if not args.live:
+                raise BridgeError('live_opt_in_required','Real business operations require --live')
+            directory=_fresh_directory(args.out)
+            from .workflow import run_chain,DEFAULT_PART,DEFAULT_MATERIAL
+            data=run_chain(directory,runs=args.runs,part=args.part or DEFAULT_PART,material=args.material or DEFAULT_MATERIAL,
+                launch=args.launch,license_server=args.license_server,allow_selected_license=args.allow_selected_license,until=args.until)
+            result=Result(data['ok'],'chain',uuid.uuid4().hex,data=data,
+                error=None if data['ok'] else {'code':'workflow_incomplete','development_ok':data.get('development_ok',False)},
+                verification_scope='Frozen baogu workflow; full success requires all stages, native Springback and same-file close/reopen/close.').to_dict()
         elif args.command in {"audit", "discover"}:
             directory = _fresh_directory(args.out) if args.out else None
             root = _project_root()
@@ -119,7 +140,8 @@ def main(argv: list[str] | None = None) -> int:
             operation = args.operation if args.command == "call" else args.command
             if operation not in {"lifecycle", "batch"}:
                 known_individual = {"attach", "create_design", "save_design", "close_design", "reopen_design", "readback", "cleanup", "disconnect", "list_designs"}
-                code = "session_required" if operation in known_individual else "not_implemented"
+                from .api import BUSINESS_OPERATIONS
+                code = "session_required" if operation in known_individual | BUSINESS_OPERATIONS else "not_implemented"
                 raise BridgeError(code, "Use one batch process for individual owned-design operations." if code == "session_required" else "This operation is not implemented in the new Bridge.", operation=operation)
             if not args.live:
                 raise BridgeError("live_opt_in_required", "Real application actions require --live on the command line; request JSON cannot grant it.")

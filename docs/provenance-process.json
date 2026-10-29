@@ -1,0 +1,362 @@
+{
+  "authorization_date": "2026-10-29",
+  "scope": "Selective reuse of verified business actions; no historical runtime package dependency",
+  "records": [
+    {
+      "source": "D:\\ai库\\autoform自动化\\af_workflow\\plan_blank_actions.py",
+      "source_sha256": "585903e6a93a94d352adc4d13965b57c5d399c65679e567fa3c03131dc174f10",
+      "destination": "src/af_r13_bridge/operations/plan.py",
+      "selected_definitions": [
+        "_fail",
+        "_controls",
+        "_one",
+        "_names",
+        "_selected",
+        "_recorded",
+        "_descriptor",
+        "_relative",
+        "_point",
+        "_page",
+        "_tab",
+        "_library_icon",
+        "_bay_state",
+        "_plan_tree",
+        "_normalized_name",
+        "_recorded_cell",
+        "_glyph_ink",
+        "_dilate",
+        "assignment_glyph_evidence",
+        "_capture_assignment_cell",
+        "_public_cell_state",
+        "_assignment_state",
+        "create_recorded_plan",
+        "activate_recorded_operation",
+        "read_recorded_plan_assignment",
+        "read_recorded_blank_state",
+        "open_recorded_die_face",
+        "_native_menu_windows",
+        "_native_popup_visible",
+        "_popup_items_readonly",
+        "_menu_probe_worker",
+        "_probe_popup_bounded",
+        "_popup_copy_item",
+        "_click_copy_popup",
+        "_source_focus_state",
+        "_source_preselection_state",
+        "copy_recorded_blank",
+        "confirm_recorded_blank_source",
+        "_select_operation_context",
+        "_tool_context_state",
+        "_automatic_tool_state",
+        "verify_automatic_tools",
+        "read_recorded_automatic_tools"
+      ],
+      "historical_verification": "runs/latest-full-chain-05, all 3 runs, applicable business stages only; not new validation",
+      "destination_sha256": "b892b5c0311753c8b69b39f39044632f58db192019c544577f129039b9952bf4"
+    },
+    {
+      "source": "D:\\ai库\\autoform自动化\\af_workflow\\process_actions.py",
+      "source_sha256": "d85342391c41e8ff7426fa3321d588b07c5f0a10f29780556c7ecd5b9e62b7f2",
+      "destination": "src/af_r13_bridge/operations/process.py",
+      "selected_definitions": [
+        "_click",
+        "_wait",
+        "_visible_controls",
+        "_one",
+        "_button",
+        "_editor",
+        "_reference_view",
+        "_active_process_page",
+        "_require_operation",
+        "_process_tab",
+        "_open_reference_tab",
+        "inspect_model_colors",
+        "_model_colors",
+        "read_recorded_reference",
+        "add_recorded_reference",
+        "_measurement_plan_table",
+        "_measurement_plan_rows",
+        "ensure_recorded_springback",
+        "_springback_state",
+        "set_recorded_friction",
+        "_friction_state"
+      ],
+      "historical_verification": "runs/latest-full-chain-05, all 3 runs, applicable business stages only; not new validation",
+      "destination_sha256": "30e939f73f00d04ff7d4712203e4a5aaf953735ff7887abe3036616632f73c4f"
+    },
+    {
+      "source": "D:\\ai库\\autoform自动化\\af_workflow\\tool_visibility.py",
+      "source_sha256": "8498a00d716b27b32dcaa9defe2d87916449465e79002a7c752bc0e77e7ecc71",
+      "destination": "src/af_r13_bridge/operations/visibility.py",
+      "selected_definitions": [
+        "_fail",
+        "_name",
+        "_visible",
+        "_inside",
+        "_layout",
+        "_references",
+        "_features",
+        "classify_eye",
+        "_capture_tree",
+        "_observe",
+        "_HeaderEye",
+        "show_recorded_tools"
+      ],
+      "historical_verification": "runs/latest-full-chain-05, all 3 runs, applicable business stages only; not new validation",
+      "destination_sha256": "9282080dbc527b30fcc3a7c801c3aae828adaaee7e49e907580ac3c344ba5226"
+    },
+    {
+      "source": "D:\\ai库\\autoform自动化\\af_workflow\\assets\\recorded-c20-draw-u.png",
+      "source_sha256": "1bd08d1454190166fa3773efbb61845c4c5526dc17bcf247b7953b738bea19e5",
+      "destination": "src/af_r13_bridge/operations/calibration/recorded-c20-draw-u.png",
+      "kind": "calibration_data",
+      "destination_sha256": "1bd08d1454190166fa3773efbb61845c4c5526dc17bcf247b7953b738bea19e5"
+    },
+    {
+      "source": "D:\\ai库\\autoform自动化\\af_workflow\\assets\\recorded-c20-draw-u.provenance.json",
+      "source_sha256": "30d1f215a76c256c8b0b542ef22b8e1c8b31166928ccbd3bf3a871ad3a1bb7b3",
+      "destination": "src/af_r13_bridge/operations/calibration/recorded-c20-draw-u.provenance.json",
+      "kind": "calibration_data",
+      "destination_sha256": "30d1f215a76c256c8b0b542ef22b8e1c8b31166928ccbd3bf3a871ad3a1bb7b3"
+    },
+    {
+      "source": "D:\\ai库\\autoform自动化\\af_workflow\\assets\\recorded-tool-eyes-hidden.png",
+      "source_sha256": "bc66e200f09ac56ecc31660f6ba0c47f105d6b5b14a54988ec111d8fcc58e180",
+      "destination": "src/af_r13_bridge/operations/calibration/recorded-tool-eyes-hidden.png",
+      "kind": "calibration_data",
+      "destination_sha256": "bc66e200f09ac56ecc31660f6ba0c47f105d6b5b14a54988ec111d8fcc58e180"
+    },
+    {
+      "source": "D:\\ai库\\autoform自动化\\af_workflow\\assets\\recorded-tool-eyes-visible.png",
+      "source_sha256": "d7d5569a62878788859c8767871469f630ce2fbf18fd41e752aa2af6bd338e0d",
+      "destination": "src/af_r13_bridge/operations/calibration/recorded-tool-eyes-visible.png",
+      "kind": "calibration_data",
+      "destination_sha256": "d7d5569a62878788859c8767871469f630ce2fbf18fd41e752aa2af6bd338e0d"
+    },
+    {
+      "source": "D:\\ai库\\autoform自动化\\af_workflow\\assets\\recorded-tool-eyes.provenance.json",
+      "source_sha256": "f0eaefdda9d95f322cf50b1e7f8a12c4062fdad1172000ea79a8e6f908beb12e",
+      "destination": "src/af_r13_bridge/operations/calibration/recorded-tool-eyes.provenance.json",
+      "kind": "calibration_data",
+      "destination_sha256": "f0eaefdda9d95f322cf50b1e7f8a12c4062fdad1172000ea79a8e6f908beb12e"
+    },
+    {
+      "source": "D:\\ai库\\autoform自动化\\录制结果\\session-20261028-114837-d70207e2\\steps.json",
+      "source_sha256": "b1c160e44c52c965550ceadf5d7cf8e12ca68bfb974adf5f5b4d8b3f1467a141",
+      "destination": "src/af_r13_bridge/operations/calibration/steps.json",
+      "selected_event_ids": [
+        61,
+        86,
+        101,
+        109,
+        115
+      ],
+      "kind": "calibration_data_subset",
+      "destination_sha256": "88c8bcb2c23e71c46ee868f245184c6dc0e9113ed309363f470851a2384e12fa"
+    }
+  ],
+  "adaptations": [
+    "Use new Bridge guarded UI primitives and worker ownership",
+    "Store all live screenshots beneath session.directory",
+    "Subset recording calibration events and package small template images",
+    "Bounded popup sidecar imports only the new installed package with -I",
+    "Exclude historical save_unique and all historical session/chain entry points",
+    "Process-page navigation/read selectors are local business functions",
+    "Flat-blank creation and readback use a minimal locally maintained implementation",
+    "Reference reversal is rejected before any UI navigation",
+    "Die-face action confirms entering and then leaving the editor",
+    "read_process_state separates stable semantics from transient observations",
+    "Friction action explicitly selects the press-line context"
+  ],
+  "new_validation": {
+    "status": "verified_specified_three_run_scenario",
+    "evidence": "runs/business-acceptance-20261029/chain.json",
+    "summary": "docs/evidence/business-acceptance-2026-10-29.json",
+    "version_fingerprint": "fbe75190f0f9e18be07001cce742a9aaab1b29ec574e359638f831c1c8d1afcf",
+    "unit_tests_passed": 144,
+    "independent_audit_checks": 3872,
+    "scope": "Specified baogu/S355MC/4 mm; 26 stages per run, GUI and native solver, same-file persistence, both closes, owned zero. No full-field or tolerance acceptance."
+  },
+  "additional_reference": {
+    "source": "D:/ai库/autoform自动化/af_workflow/runner.py",
+    "source_sha256": "e3303793c2d059975a851cdbc939f427e45b8cfe531ddfe8a1a406dcd63dcc02",
+    "selected_definitions": [
+      "_select_line"
+    ],
+    "destination": "src/af_r13_bridge/operations/process.py:select_press_line"
+  },
+  "calibration_source_checks": [
+    {
+      "source": "D:\\ai库\\autoform自动化\\录制结果\\session-20261028-114837-d70207e2\\screenshots\\000119-before.jpg",
+      "expected_sha256": "0b32d69ef121dc2c290ec1870701e01203cb6eb96684375f9e0e5073948b3da5",
+      "actual_sha256": "0b32d69ef121dc2c290ec1870701e01203cb6eb96684375f9e0e5073948b3da5",
+      "matches": true
+    },
+    {
+      "source": "D:\\ai库\\autoform自动化\\录制结果\\session-20261028-114837-d70207e2\\screenshots\\000119-after.jpg",
+      "expected_sha256": "032fd24a4c9a38b7c9f72bd91497f50c4e266f5d2ec8d3604c80cdb85eea0a10",
+      "actual_sha256": "032fd24a4c9a38b7c9f72bd91497f50c4e266f5d2ec8d3604c80cdb85eea0a10",
+      "matches": true
+    },
+    {
+      "source": "D:\\ai库\\autoform自动化\\录制结果\\session-20261028-114837-d70207e2\\screenshots\\000092-after.jpg",
+      "expected_sha256": "89b09dd38e02e7f757b2191a1b9b83fade8e8531996f9f5ff50775eedc8adf6d",
+      "actual_sha256": "89b09dd38e02e7f757b2191a1b9b83fade8e8531996f9f5ff50775eedc8adf6d",
+      "matches": true
+    }
+  ],
+  "final_artifacts_recorded_date": "2026-10-29",
+  "final_artifact_scope": "Current source/calibration snapshot before final three-run acceptance; hashes do not establish live validation.",
+  "final_artifacts": [
+    {
+      "path": "src/af_r13_bridge/operations/plan.py",
+      "sha256": "b892b5c0311753c8b69b39f39044632f58db192019c544577f129039b9952bf4",
+      "size_bytes": 52757,
+      "role": "selected_process_business"
+    },
+    {
+      "path": "src/af_r13_bridge/operations/process.py",
+      "sha256": "30e939f73f00d04ff7d4712203e4a5aaf953735ff7887abe3036616632f73c4f",
+      "size_bytes": 19225,
+      "role": "selected_process_business"
+    },
+    {
+      "path": "src/af_r13_bridge/operations/visibility.py",
+      "sha256": "9282080dbc527b30fcc3a7c801c3aae828adaaee7e49e907580ac3c344ba5226",
+      "size_bytes": 17374,
+      "role": "selected_process_business"
+    },
+    {
+      "path": "src/af_r13_bridge/operations/calibration/recorded-c20-draw-u.png",
+      "sha256": "1bd08d1454190166fa3773efbb61845c4c5526dc17bcf247b7953b738bea19e5",
+      "size_bytes": 1809,
+      "role": "calibration_data"
+    },
+    {
+      "path": "src/af_r13_bridge/operations/calibration/recorded-c20-draw-u.provenance.json",
+      "sha256": "30d1f215a76c256c8b0b542ef22b8e1c8b31166928ccbd3bf3a871ad3a1bb7b3",
+      "size_bytes": 494,
+      "role": "calibration_data"
+    },
+    {
+      "path": "src/af_r13_bridge/operations/calibration/recorded-tool-eyes-hidden.png",
+      "sha256": "bc66e200f09ac56ecc31660f6ba0c47f105d6b5b14a54988ec111d8fcc58e180",
+      "size_bytes": 1211,
+      "role": "calibration_data"
+    },
+    {
+      "path": "src/af_r13_bridge/operations/calibration/recorded-tool-eyes-visible.png",
+      "sha256": "d7d5569a62878788859c8767871469f630ce2fbf18fd41e752aa2af6bd338e0d",
+      "size_bytes": 2083,
+      "role": "calibration_data"
+    },
+    {
+      "path": "src/af_r13_bridge/operations/calibration/recorded-tool-eyes.provenance.json",
+      "sha256": "f0eaefdda9d95f322cf50b1e7f8a12c4062fdad1172000ea79a8e6f908beb12e",
+      "size_bytes": 2428,
+      "role": "calibration_data"
+    },
+    {
+      "path": "src/af_r13_bridge/operations/calibration/steps.json",
+      "sha256": "88c8bcb2c23e71c46ee868f245184c6dc0e9113ed309363f470851a2384e12fa",
+      "size_bytes": 20904,
+      "role": "calibration_data"
+    }
+  ],
+  "source_hash_verification": {
+    "checked_on": "2026-10-29",
+    "method": "read-only SHA256 of original source/evidence files; selected function hashes use UTF-8 ast.get_source_segment",
+    "ok": true,
+    "file_records_checked": 13,
+    "function_spans_checked": 0,
+    "files": [
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\plan_blank_actions.py",
+        "recorded_sha256": "585903e6a93a94d352adc4d13965b57c5d399c65679e567fa3c03131dc174f10",
+        "actual_sha256": "585903e6a93a94d352adc4d13965b57c5d399c65679e567fa3c03131dc174f10",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\process_actions.py",
+        "recorded_sha256": "d85342391c41e8ff7426fa3321d588b07c5f0a10f29780556c7ecd5b9e62b7f2",
+        "actual_sha256": "d85342391c41e8ff7426fa3321d588b07c5f0a10f29780556c7ecd5b9e62b7f2",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\tool_visibility.py",
+        "recorded_sha256": "8498a00d716b27b32dcaa9defe2d87916449465e79002a7c752bc0e77e7ecc71",
+        "actual_sha256": "8498a00d716b27b32dcaa9defe2d87916449465e79002a7c752bc0e77e7ecc71",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\assets\\recorded-c20-draw-u.png",
+        "recorded_sha256": "1bd08d1454190166fa3773efbb61845c4c5526dc17bcf247b7953b738bea19e5",
+        "actual_sha256": "1bd08d1454190166fa3773efbb61845c4c5526dc17bcf247b7953b738bea19e5",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\assets\\recorded-c20-draw-u.provenance.json",
+        "recorded_sha256": "30d1f215a76c256c8b0b542ef22b8e1c8b31166928ccbd3bf3a871ad3a1bb7b3",
+        "actual_sha256": "30d1f215a76c256c8b0b542ef22b8e1c8b31166928ccbd3bf3a871ad3a1bb7b3",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\assets\\recorded-tool-eyes-hidden.png",
+        "recorded_sha256": "bc66e200f09ac56ecc31660f6ba0c47f105d6b5b14a54988ec111d8fcc58e180",
+        "actual_sha256": "bc66e200f09ac56ecc31660f6ba0c47f105d6b5b14a54988ec111d8fcc58e180",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\assets\\recorded-tool-eyes-visible.png",
+        "recorded_sha256": "d7d5569a62878788859c8767871469f630ce2fbf18fd41e752aa2af6bd338e0d",
+        "actual_sha256": "d7d5569a62878788859c8767871469f630ce2fbf18fd41e752aa2af6bd338e0d",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\af_workflow\\assets\\recorded-tool-eyes.provenance.json",
+        "recorded_sha256": "f0eaefdda9d95f322cf50b1e7f8a12c4062fdad1172000ea79a8e6f908beb12e",
+        "actual_sha256": "f0eaefdda9d95f322cf50b1e7f8a12c4062fdad1172000ea79a8e6f908beb12e",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\录制结果\\session-20261028-114837-d70207e2\\steps.json",
+        "recorded_sha256": "b1c160e44c52c965550ceadf5d7cf8e12ca68bfb974adf5f5b4d8b3f1467a141",
+        "actual_sha256": "b1c160e44c52c965550ceadf5d7cf8e12ca68bfb974adf5f5b4d8b3f1467a141",
+        "matches": true
+      },
+      {
+        "path": "D:/ai库/autoform自动化/af_workflow/runner.py",
+        "recorded_sha256": "e3303793c2d059975a851cdbc939f427e45b8cfe531ddfe8a1a406dcd63dcc02",
+        "actual_sha256": "e3303793c2d059975a851cdbc939f427e45b8cfe531ddfe8a1a406dcd63dcc02",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\录制结果\\session-20261028-114837-d70207e2\\screenshots\\000119-before.jpg",
+        "recorded_sha256": "0b32d69ef121dc2c290ec1870701e01203cb6eb96684375f9e0e5073948b3da5",
+        "actual_sha256": "0b32d69ef121dc2c290ec1870701e01203cb6eb96684375f9e0e5073948b3da5",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\录制结果\\session-20261028-114837-d70207e2\\screenshots\\000119-after.jpg",
+        "recorded_sha256": "032fd24a4c9a38b7c9f72bd91497f50c4e266f5d2ec8d3604c80cdb85eea0a10",
+        "actual_sha256": "032fd24a4c9a38b7c9f72bd91497f50c4e266f5d2ec8d3604c80cdb85eea0a10",
+        "matches": true
+      },
+      {
+        "path": "D:\\ai库\\autoform自动化\\录制结果\\session-20261028-114837-d70207e2\\screenshots\\000092-after.jpg",
+        "recorded_sha256": "89b09dd38e02e7f757b2191a1b9b83fade8e8531996f9f5ff50775eedc8adf6d",
+        "actual_sha256": "89b09dd38e02e7f757b2191a1b9b83fade8e8531996f9f5ff50775eedc8adf6d",
+        "matches": true
+      }
+    ]
+  },
+  "final_validation": {
+    "status": "verified_specified_three_run_scenario",
+    "evidence": "runs/business-acceptance-20261029/chain.json",
+    "summary": "docs/evidence/business-acceptance-2026-10-29.json",
+    "version_fingerprint": "fbe75190f0f9e18be07001cce742a9aaab1b29ec574e359638f831c1c8d1afcf",
+    "unit_tests_passed": 144,
+    "independent_audit_checks": 3872,
+    "scope": "Specified baogu/S355MC/4 mm; 26 stages per run, GUI and native solver, same-file persistence, both closes, owned zero. No full-field or tolerance acceptance."
+  }
+}

@@ -315,6 +315,46 @@ class WindowsAdapter:
         self.capture('readback')
         return result
 
+    def business(self,design,operation,arguments):
+        from ..operations.dispatch import OPERATIONS
+        if operation not in OPERATIONS:
+            raise BridgeError('not_implemented','Business operation not registered')
+        if design.token not in self._owned_tokens:
+            raise BridgeError('not_owned','Business operations require an owned design')
+        if operation=='import_part':
+            # R13 can restore below the desktop work area, covering Apply with
+            # the taskbar. Start business work in the maximized application view.
+            self._idle()
+            native.u.ShowWindow(self.hwnd,3)
+            time.sleep(.3)
+            self.supervisor.evidence.append('business_window_maximized',hwnd=self.hwnd,windows=self._windows())
+        current=self._select(design)
+        if operation!='read_business':
+            self._saved.pop(design.token,None)
+        timeout={'forming_check':210,'start_simulation':360,'read_business':180}.get(operation,120)
+        response=self.supervisor.run_worker({'action':'business','operation':operation,
+            'pid':self.pid,'hwnd':self.hwnd,'document_rid':current.metadata['runtime_id'],
+            'directory':str(self.directory),'project':current.path,'arguments':arguments},timeout=timeout)
+        if operation=='start_simulation' and response.get('save_transaction',{}).get('ok'):
+            proof=response['save_transaction']
+            path=Path(arguments['path']).resolve()
+            rid=current.metadata['runtime_id']
+            from ..lifecycle import digest, canonical_path
+            if (canonical_path(proof.get('path',''))!=canonical_path(path)
+                    or proof.get('path_readback')!=str(path)
+                    or proof.get('before_rid')!=rid or proof.get('after_rid')!=rid
+                    or not path.is_relative_to(self.directory) or not path.is_file()
+                    or proof.get('sha256')!=digest(path)):
+                raise BridgeError('simulation_save_unverified','Start save transaction failed independent validation',proof=proof)
+            after=self._design(design)
+            if after.name!=path.stem or not active_title_matches(self._last_title,path.stem):
+                raise BridgeError('simulation_save_identity','Start save title/identity mismatch')
+            verified={'save_verified':True,'save_file':digest(path),'save_transaction':proof,
+                      'verification_scope':'Start file-dialog path + same owned tab + title + file hash'}
+            self._saved[design.token]=verified
+            self.entries[design.token]=replace(after,path=str(path),metadata={**after.metadata,**verified})
+        return response
+
     def metrics(self):
         self._windows()
         memory=psutil.Process(self.pid).memory_info()

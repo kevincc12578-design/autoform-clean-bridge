@@ -1,0 +1,23 @@
+{
+  "name": "recorded_u",
+  "source": "录制结果/session-20261028-114837-d70207e2/screenshots/000092-after.jpg",
+  "source_sha256": "89b09dd38e02e7f757b2191a1b9b83fade8e8531996f9f5ff50775eedc8adf6d",
+  "image_crop_rect": [
+    130,
+    136,
+    168,
+    159
+  ],
+  "crop_file": "tests\\fixtures\\recorded_u.png",
+  "source_image_screen_origin": [
+    0,
+    0
+  ],
+  "true_screen_cell_rect": [
+    130,
+    136,
+    168,
+    159
+  ],
+  "image_content_modified": false
+}
